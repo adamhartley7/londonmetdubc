@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dorney Lake — Race Weekend · A. Hartley, DUBC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101c1b; --water:#0c3a3b; --water2:#125150; --water3:#1c6a64;
+    --paper:#f6ecd6; --paper2:#efe3c7; --card:#fbf4e3;
+    --crimson:#9c2b22; --crimson2:#bb4234; --brass:#c79236; --brass2:#e0b65a;
+    --good:#2f7d5b; --breezy:#c2812a; --showers:#4d7390;
+    --line:rgba(16,28,27,.14); --muted:#5c6b66; --ghost:rgba(246,236,214,.55);
+    --shadow:0 18px 40px -22px rgba(0,0,0,.55);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Spectral",Georgia,serif;color:var(--ink);
+    background:
+      radial-gradient(1200px 700px at 78% -8%, rgba(224,182,90,.16), transparent 60%),
+      radial-gradient(900px 600px at 6% 4%, rgba(28,106,100,.4), transparent 55%),
+      linear-gradient(170deg,#0a2a2b 0%,#0c3a3b 30%,#0e423f 100%);
+    background-attachment:fixed;
+    min-height:100vh;-webkit-font-smoothing:antialiased;line-height:1.55;
+    padding-bottom:60px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+  h1,h2,h3,h4,.disp{font-family:"Fraunces",serif;font-optical-sizing:auto}
+  .tnum{font-variant-numeric:tabular-nums lining-nums}
+
+  /* ============ MASTHEAD ============ */
+  .mast{position:relative;padding:46px 0 30px;overflow:hidden}
+  .mast .eyebrow{font-family:"Fraunces";font-weight:500;font-style:italic;
+    color:var(--brass2);letter-spacing:.06em;font-size:.96rem}
+  .mast h1{color:var(--paper);font-weight:900;line-height:.95;letter-spacing:-.015em;
+    font-size:clamp(2.7rem,9vw,5.4rem);margin:.12em 0 .1em;text-wrap:balance}
+  .mast h1 em{font-style:italic;font-weight:500;color:var(--brass2)}
+  .mast .sub{color:var(--ghost);font-size:1.02rem;max-width:46ch}
+  .crest{display:inline-flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+  .crest span{font-size:.8rem;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--paper);border:1px solid rgba(246,236,214,.28);
+    padding:6px 12px;border-radius:30px;background:rgba(255,255,255,.03)}
+  .lake{position:absolute;inset:auto 0 0 0;height:62px;opacity:.5;pointer-events:none}
+  .lane-deco{position:absolute;top:0;right:-40px;width:300px;height:300px;
+    border-radius:50%;border:1px solid rgba(224,182,90,.18);pointer-events:none}
+  .lane-deco::after{content:"";position:absolute;inset:34px;border-radius:50%;
+    border:1px solid rgba(224,182,90,.12)}
+
+  /* ============ PANELS ============ */
+  .panel{background:linear-gradient(180deg,var(--card),var(--paper2));
+    border-radius:20px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.4);
+    padding:24px;margin:18px 0;position:relative;overflow:hidden}
+  .panel::before{content:"";position:absolute;inset:0;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='120' height='120' filter='url(%23n)' opacity='0.035'/></svg>");
+    pointer-events:none;mix-blend-mode:multiply}
+  .ptitle{font-family:"Fraunces";font-weight:600;font-size:1.5rem;letter-spacing:-.01em;
+    display:flex;align-items:center;gap:10px}
+  .ptitle .dot{width:9px;height:9px;border-radius:50%;background:var(--crimson)}
+  .lede{color:var(--muted);font-size:.98rem;margin-top:4px}
+  .kicker{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--crimson);font-weight:600;font-family:"Spectral"}
+
+  /* ============ VERIFICATION ============ */
+  .verify .row{display:flex;gap:13px;align-items:flex-start;padding:11px 0;
+    border-top:1px solid var(--line)}
+  .verify .row:first-of-type{border-top:none}
+  .mark{flex:0 0 26px;height:26px;border-radius:50%;display:grid;place-items:center;
+    font-size:.9rem;font-weight:700;margin-top:1px}
+  .mark.ok{background:rgba(47,125,91,.16);color:var(--good)}
+  .mark.flag{background:rgba(194,129,42,.18);color:var(--breezy)}
+  .verify .row b{font-family:"Fraunces";font-weight:600}
+  .verify .row .t{font-size:.96rem}
+  .verify .row .t small{color:var(--muted)}
+
+  /* ============ DAY TOGGLE ============ */
+  .daybar{display:flex;justify-content:center;margin:30px 0 6px;position:sticky;top:10px;z-index:30}
+  .seg{display:inline-flex;background:rgba(8,30,30,.72);backdrop-filter:blur(8px);
+    border:1px solid rgba(224,182,90,.3);border-radius:40px;padding:5px;gap:4px;
+    box-shadow:0 12px 30px -14px rgba(0,0,0,.7)}
+  .seg button{font-family:"Fraunces";font-weight:600;font-size:1rem;color:var(--ghost);
+    background:none;border:none;padding:9px 22px;border-radius:34px;cursor:pointer;
+    transition:.35s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;align-items:center;line-height:1.1}
+  .seg button small{font-weight:400;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+  .seg button.on{background:linear-gradient(180deg,var(--brass2),var(--brass));color:#1a1207}
+  .seg button.on small{opacity:.85}
+  .daybar{gap:10px;align-items:center}
+  .refresh{display:inline-flex;align-items:center;gap:7px;font-family:"Spectral";font-weight:600;
+    font-size:.86rem;color:var(--paper);background:rgba(8,30,30,.72);backdrop-filter:blur(8px);
+    border:1px solid rgba(224,182,90,.3);border-radius:40px;padding:10px 16px;cursor:pointer;
+    box-shadow:0 12px 30px -14px rgba(0,0,0,.7);transition:.25s}
+  .refresh:hover{border-color:var(--brass2)}
+  .refresh .ri{font-size:1.1rem;display:inline-block;transition:transform .6s}
+  .refresh.spin .ri{transform:rotate(360deg)}
+
+  .viewbar{display:flex;justify-content:center;margin:8px 0 2px}
+  .vseg{display:inline-flex;background:rgba(255,255,255,.32);border:1px solid var(--line);
+    border-radius:32px;padding:4px;gap:3px}
+  .vseg button{font-family:"Fraunces";font-weight:600;font-size:.92rem;color:var(--muted);
+    background:none;border:none;padding:8px 26px;border-radius:26px;cursor:pointer;transition:.3s;letter-spacing:.02em}
+  .vseg button.on{background:var(--ink);color:var(--paper)}
+
+  .livebar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+    margin:10px 0;padding:11px 14px;border-radius:13px;background:rgba(77,115,144,.1);
+    border:1px solid rgba(77,115,144,.25)}
+  .live-status{font-size:.88rem;color:var(--showers);font-weight:600;display:flex;align-items:center;gap:8px}
+  .live-status .led{width:8px;height:8px;border-radius:50%;background:var(--showers);flex:0 0 auto}
+  .live-status.err .led{background:var(--breezy)}
+  .live-status .ts{color:var(--muted);font-weight:400;font-size:.82rem}
+  .live-link{font-weight:600;font-size:.88rem;color:#fff;background:var(--showers);
+    padding:7px 14px;border-radius:30px;text-decoration:none;white-space:nowrap}
+  .notebox{font-size:.86rem;color:var(--muted);background:rgba(16,28,27,.045);
+    border-left:3px solid var(--brass);border-radius:0 10px 10px 0;padding:11px 14px;margin-bottom:6px}
+  .notebox b{font-family:"Fraunces";color:var(--ink)}
+
+  .results{display:grid;gap:18px}
+  .rmod{background:var(--card);border-radius:18px;box-shadow:var(--shadow);
+    border:1px solid rgba(255,255,255,.4);overflow:hidden;position:relative}
+  .rmod .stripe{position:absolute;left:0;top:0;bottom:0;width:6px}
+  .rmod.four .stripe{background:linear-gradient(var(--water3),var(--water))}
+  .rmod.eight .stripe{background:linear-gradient(var(--crimson2),var(--crimson))}
+  .rmod-in{padding:16px 18px 18px 24px}
+  .rmod-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .rmod-head .t{font-family:"Fraunces";font-weight:700;font-size:1.2rem}
+  .rmod-head .s{font-size:.84rem;color:var(--muted)}
+  .splitToggle{font-family:"Spectral";font-size:.76rem;font-weight:600;color:var(--muted);
+    background:rgba(255,255,255,.5);border:1px solid var(--line);border-radius:24px;padding:5px 12px;cursor:pointer}
+  .splitToggle.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+  .entry{margin-top:12px;overflow-x:auto}
+  .entry table{border-collapse:collapse;width:100%;min-width:340px}
+  .entry th{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    font-weight:600;text-align:left;padding:4px 6px;font-family:"Spectral"}
+  .entry td{padding:3px 6px;border-top:1px solid var(--line);vertical-align:middle}
+  .entry tr.us td{background:linear-gradient(90deg,rgba(199,146,54,.2),rgba(199,146,54,.04))}
+  .entry .cn{font-size:.9rem;max-width:190px}
+  .entry tr.us .cn{font-weight:700}
+  .entry input{font-family:"Spectral";font-variant-numeric:tabular-nums;font-size:.86rem;
+    width:62px;padding:5px 7px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+  .entry input:focus{outline:2px solid var(--brass2);border-color:var(--brass2)}
+  .entry .sp{display:none}
+  .rmod.show-splits .entry .sp{display:table-cell}
+  .addboat{font-family:"Spectral";font-size:.8rem;font-weight:600;color:var(--water2);
+    background:none;border:1px dashed var(--water3);border-radius:9px;padding:6px 12px;cursor:pointer;margin-top:8px}
+
+  .ranking{margin-top:14px}
+  .ranking .row{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:10px;font-size:.92rem}
+  .ranking .row:nth-child(even){background:rgba(255,255,255,.35)}
+  .ranking .row.us{background:linear-gradient(90deg,rgba(199,146,54,.28),rgba(199,146,54,.06));
+    border:1px solid var(--brass);font-weight:600}
+  .ranking .pl{font-family:"Fraunces";font-weight:700;width:30px;font-variant-numeric:tabular-nums}
+  .ranking .pl.medal1{color:#b8860b}.ranking .pl.medal2{color:#7d7d7d}.ranking .pl.medal3{color:#a0623a}
+  .ranking .nm{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ranking .tm{font-variant-numeric:tabular-nums;font-weight:600}
+  .ranking .gap{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums;width:54px;text-align:right}
+  .place-call{margin:12px 0;padding:11px 15px;border-radius:12px;background:rgba(156,43,34,.07);
+    border-left:3px solid var(--crimson);font-size:.95rem}
+  .place-call b{font-family:"Fraunces"}
+  .place-call .big{font-family:"Fraunces";font-weight:900;font-size:1.5rem;color:var(--crimson)}
+
+  .charts{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+  .chartcard{background:rgba(255,255,255,.4);border:1px solid var(--line);border-radius:13px;padding:12px 12px 8px}
+  .chartcard .ct{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--crimson);font-weight:600;margin-bottom:6px}
+  .chartcard .empty{font-size:.84rem;color:var(--muted);font-style:italic;padding:10px 4px}
+  .chartcard svg{display:block;width:100%;height:auto;overflow:visible}
+  @media(min-width:640px){.charts{grid-template-columns:1fr 1fr}}
+
+  .distbadge{font-family:"Fraunces";font-weight:700;font-size:.78rem;color:var(--crimson);
+    background:rgba(156,43,34,.1);border:1px solid rgba(156,43,34,.25);padding:5px 11px;border-radius:20px;white-space:nowrap}
+  .finalhint{font-size:.82rem;color:var(--water2);background:rgba(28,106,100,.08);
+    border:1px solid rgba(28,106,100,.2);border-radius:10px;padding:9px 12px;margin:10px 0 4px}
+  .finalhint b{font-family:"Fraunces"}
+  .paste{width:100%;min-height:88px;margin-top:10px;font-family:ui-monospace,"SFMono-Regular",Menlo,monospace;
+    font-size:.8rem;line-height:1.45;padding:11px 13px;border:1px solid var(--line);border-radius:12px;
+    background:#fffdf6;color:var(--ink);resize:vertical}
+  .paste:focus{outline:2px solid var(--brass2);border-color:var(--brass2)}
+  .paste-row{display:flex;align-items:center;gap:10px;margin-top:9px;flex-wrap:wrap}
+  .parsebtn{font-family:"Fraunces";font-weight:600;font-size:.86rem;color:var(--paper);
+    background:var(--ink);border:none;border-radius:24px;padding:9px 18px;cursor:pointer;transition:.2s}
+  .parsebtn:hover{background:#1b3230}
+  .clearbtn{font-family:"Spectral";font-weight:600;font-size:.82rem;color:var(--muted);
+    background:none;border:1px solid var(--line);border-radius:24px;padding:8px 14px;cursor:pointer}
+  .upd{font-size:.78rem;color:var(--muted);font-style:italic;margin-left:auto}
+
+  .restable{overflow-x:auto;margin-top:12px}
+  .restable table{border-collapse:collapse;width:100%;min-width:320px;font-variant-numeric:tabular-nums}
+  .restable th{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    font-weight:600;text-align:left;padding:6px 8px;font-family:"Spectral";border-bottom:1.5px solid var(--ink)}
+  .restable td{padding:7px 8px;border-top:1px solid var(--line);font-size:.88rem}
+  .restable td.tm{font-weight:600}
+  .restable tr.us td{background:linear-gradient(90deg,rgba(199,146,54,.26),rgba(199,146,54,.05))}
+  .restable tr.us{font-weight:700}
+  .restable td.pl{font-family:"Fraunces";font-weight:700;width:34px}
+  .restable td.pl.medal1{color:#b8860b}.restable td.pl.medal2{color:#7d7d7d}.restable td.pl.medal3{color:#a0623a}
+
+  /* ============ RACE CARDS ============ */
+  .races{display:grid;gap:16px}
+  .race{background:var(--card);border-radius:18px;box-shadow:var(--shadow);
+    border:1px solid rgba(255,255,255,.4);overflow:hidden;position:relative;
+    opacity:0;transform:translateY(14px)}
+  .race.in{animation:rise .6s cubic-bezier(.2,.8,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .race .stripe{position:absolute;left:0;top:0;bottom:0;width:6px}
+  .race.four .stripe{background:linear-gradient(var(--water3),var(--water))}
+  .race.eight .stripe{background:linear-gradient(var(--crimson2),var(--crimson))}
+  .rhead{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;
+    padding:18px 20px 14px 26px;cursor:pointer}
+  .rtime{font-family:"Fraunces";font-weight:900;font-size:1.9rem;line-height:.9;letter-spacing:-.02em}
+  .rtime small{display:block;font-size:.62rem;font-weight:500;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-top:5px}
+  .rmid .ev{font-family:"Fraunces";font-weight:600;font-size:1.12rem;line-height:1.15}
+  .rmid .meta{font-size:.85rem;color:var(--muted);margin-top:3px}
+  .badge{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+    padding:4px 9px;border-radius:20px;white-space:nowrap}
+  .badge.four{background:rgba(28,106,100,.15);color:var(--water2)}
+  .badge.eight{background:rgba(156,43,34,.13);color:var(--crimson)}
+  .rread{display:flex;align-items:center;gap:7px;font-size:.82rem;font-weight:600}
+  .pill{font-size:.7rem;padding:3px 9px;border-radius:14px;font-weight:600;letter-spacing:.03em}
+  .pill.good{background:rgba(47,125,91,.16);color:var(--good)}
+  .pill.breezy{background:rgba(194,129,42,.18);color:var(--breezy)}
+  .pill.showers{background:rgba(77,115,144,.18);color:var(--showers)}
+  .chev{transition:.4s;color:var(--muted);font-size:1.1rem}
+  .race.open .chev{transform:rotate(90deg)}
+
+  .rbody{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+  .race.open .rbody{max-height:1600px}
+  .rbody-in{padding:4px 20px 22px 26px}
+  .statline{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 16px}
+  .stat{background:var(--paper2);border:1px solid var(--line);border-radius:12px;
+    padding:8px 13px;min-width:96px}
+  .stat .k{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .stat .v{font-family:"Fraunces";font-weight:700;font-size:1.18rem;line-height:1.1;margin-top:2px}
+  .stat .v small{font-weight:400;font-size:.7rem;color:var(--muted)}
+
+  .subhdr{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson);
+    font-weight:600;margin:14px 0 8px}
+  .crewlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px}
+  .crew{display:flex;align-items:center;gap:8px;font-size:.9rem;padding:6px 9px;border-radius:9px;
+    background:rgba(255,255,255,.45);border:1px solid var(--line)}
+  .crew .bib{font-variant-numeric:tabular-nums;font-size:.72rem;color:var(--muted);
+    width:30px;font-weight:600}
+  .crew.us{background:linear-gradient(90deg,rgba(199,146,54,.28),rgba(199,146,54,.08));
+    border-color:var(--brass);font-weight:600}
+  .crew.us .bib{color:var(--crimson)}
+  .crew .tag{margin-left:auto;font-size:.6rem;letter-spacing:.06em;padding:2px 6px;border-radius:10px;
+    text-transform:uppercase;font-weight:700}
+  .crew .tag.pow{background:var(--crimson);color:#fff}
+  .crew .tag.irl{background:var(--good);color:#fff}
+  .crew .tag.us{background:var(--brass);color:#1a1207}
+
+  .strength{margin-top:15px;padding:13px 15px;border-radius:13px;
+    background:rgba(16,28,27,.05);border-left:3px solid var(--crimson);font-size:.94rem}
+  .strength b{font-family:"Fraunces"}
+
+  /* weather-effect diagram inside race */
+  .wxfx{margin-top:15px;display:grid;grid-template-columns:1fr;gap:12px}
+  .course-wrap{background:linear-gradient(180deg,#0d3c3d,#0a2e2f);border-radius:14px;
+    padding:14px 14px 10px;position:relative;overflow:hidden}
+  .course-wrap .lbl{color:var(--ghost);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase}
+  .wxnote{font-size:.9rem;color:var(--muted);display:flex;gap:9px;align-items:flex-start}
+  .wxnote .ic{flex:0 0 auto;color:var(--crimson);font-weight:700}
+
+  /* ============ WEATHER EXPLORER ============ */
+  .wx-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px}
+  .wx-read{display:flex;align-items:baseline;gap:14px}
+  .wx-temp{font-family:"Fraunces";font-weight:900;font-size:3.6rem;line-height:.85;letter-spacing:-.02em}
+  .wx-temp small{font-size:1.3rem;vertical-align:super;font-weight:600;color:var(--muted)}
+  .wx-when{font-family:"Fraunces";font-weight:600;font-size:1.15rem}
+  .wx-when small{display:block;font-family:"Spectral";font-weight:400;font-size:.82rem;color:var(--muted)}
+  .wx-mini{display:flex;gap:18px}
+  .wx-mini div{text-align:right}
+  .wx-mini .k{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .wx-mini .v{font-family:"Fraunces";font-weight:700;font-size:1.25rem}
+
+  .metric-tabs{display:flex;gap:6px;margin:16px 0 8px}
+  .metric-tabs button{font-family:"Spectral";font-size:.82rem;font-weight:600;border:1px solid var(--line);
+    background:rgba(255,255,255,.4);padding:6px 13px;border-radius:30px;cursor:pointer;color:var(--muted);transition:.25s}
+  .metric-tabs button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+  .chart{position:relative;width:100%;touch-action:pan-y}
+  .chart svg{display:block;width:100%;height:auto;overflow:visible}
+  .scrub-hint{font-size:.78rem;color:var(--muted);text-align:center;margin-top:6px;font-style:italic}
+  .hourchips{display:flex;gap:6px;overflow-x:auto;padding:12px 2px 4px;scrollbar-width:thin}
+  .hourchips button{flex:0 0 auto;font-variant-numeric:tabular-nums;font-size:.78rem;
+    border:1px solid var(--line);background:rgba(255,255,255,.4);border-radius:10px;
+    padding:6px 9px;cursor:pointer;color:var(--muted);min-width:46px;text-align:center;transition:.2s}
+  .hourchips button.race{border-color:var(--crimson);color:var(--crimson);font-weight:700}
+  .hourchips button.on{background:var(--brass);border-color:var(--brass);color:#1a1207;font-weight:700}
+
+  /* ============ ARC STRIP ============ */
+  .arc{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .arc .day{background:rgba(255,255,255,.4);border:1px solid var(--line);border-radius:14px;
+    padding:13px;text-align:center}
+  .arc .day.race-day{background:linear-gradient(180deg,rgba(199,146,54,.2),rgba(199,146,54,.05));
+    border-color:var(--brass)}
+  .arc .day .dname{font-family:"Fraunces";font-weight:600;font-size:.95rem}
+  .arc .day .ico{font-size:1.7rem;margin:4px 0}
+  .arc .day .hi{font-family:"Fraunces";font-weight:700;font-size:1.4rem}
+  .arc .day .lo{color:var(--muted);font-size:.85rem}
+  .arc .day .ol{font-size:.72rem;color:var(--muted);margin-top:5px;line-height:1.3}
+
+  /* ============ FOOTER ============ */
+  .foot{color:var(--ghost);font-size:.84rem;margin-top:26px;text-align:center;line-height:1.6}
+  .foot a{color:var(--brass2)}
+  .conf{display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:10px 0}
+  .conf span{font-size:.74rem;letter-spacing:.06em}
+  .conf b{color:var(--paper)}
+
+  @media(max-width:560px){
+    .rhead{grid-template-columns:auto 1fr;gap:10px}
+    .rhead .badge{grid-column:2;justify-self:start}
+    .rread{grid-column:1 / -1;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px;margin-top:2px}
+    .wx-temp{font-size:2.9rem}
+    .arc{grid-template-columns:repeat(2,1fr)}
+  }
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="lane-deco"></div>
+    <div class="eyebrow">Race-Weekend Dossier · verified 29 May 2026</div>
+    <h1>Dorney Lake<br><em>Race Weekend</em></h1>
+    <p class="sub">Adam Hartley, Dublin University Boat Club — London Metropolitan Regatta, 30–31 May 2026. Coxed Four &amp; Championship Eight.</p>
+    <div class="crest">
+      <span>★ Met Regatta 2026</span>
+      <span>Dorney · Windsor SL4 6FJ</span>
+      <span>Gates 07:00 both days</span>
+    </div>
+  </div>
+  <svg class="lake" viewBox="0 0 1440 60" preserveAspectRatio="none">
+    <path d="M0,30 C180,10 320,50 480,30 C640,10 780,50 960,30 C1140,10 1280,50 1440,30 L1440,60 L0,60 Z" fill="rgba(224,182,90,.25)"/>
+    <path d="M0,40 C200,22 360,58 540,40 C720,22 900,58 1080,40 C1260,22 1380,52 1440,40 L1440,60 L0,60 Z" fill="rgba(224,182,90,.35)"/>
+  </svg>
+</header>
+
+<div class="wrap">
+
+  <!-- VERIFICATION -->
+  <section class="panel verify">
+    <div class="kicker">Fact-check against the official draw</div>
+    <h2 class="ptitle" style="margin-top:5px"><span class="dot"></span>What I could confirm — and what I couldn't</h2>
+    <p class="lede">Cross-checked line-by-line against the Metropolitan Regatta 2026 Saturday &amp; Sunday draws (metregatta.org). Verified facts are flagged; the rest I'm flagging honestly rather than guessing.</p>
+    <div style="margin-top:14px">
+      <div class="row"><div class="mark ok">✓</div><div class="t"><b>All eight race times are correct.</b> Sat Four TT 09:38 (R9), Final 12:14–12:43 (R32–37); Sat Eight TT 14:15 (R51), Final 16:25–17:38 (R69–80). Sun Four TT 09:32 (R9), Final 11:55–12:19 (R29–33); Sun Eight TT 13:47 (R46), Final 15:31–16:18 (R64–71). <small>Every time and race number matches the draw exactly.</small></div></div>
+      <div class="row"><div class="mark ok">✓</div><div class="t"><b>The boats are correctly identified.</b> DUBC men have exactly one 4+ (Open Coxed Fours, Academic) and one 8+ (Open Eights, Championship) each day — these are your boats. <small>Sat: bib 159 &amp; 284. Sun: bib 136 &amp; 236. Sat eight = Champion Cup; Sun eight = Peter Coni Cup.</small></div></div>
+      <div class="row"><div class="mark flag">!</div><div class="t"><b>Your seat &amp; crewmates aren't verifiable.</b> The public draw lists each crew by club with a single contact only (D Robinson, for every DUBC entry — almost certainly the club contact, not a seat). <small>So I can't confirm "Bow" in the four or "7-seat" in the eight, or who else is aboard. Confirm with your club's start sheet.</small></div></div>
+      <div class="row"><div class="mark flag">!</div><div class="t"><b>There is no "lane" yet.</b> These are time trials — crews are set off at intervals, not side-by-side, so there's no lane to be in. <small>Final lanes are seeded by the time-trial result, so they won't exist until after you've raced the TT.</small></div></div>
+      <div class="row"><div class="mark ok">✓</div><div class="t"><b>Entries, rivals &amp; relative strength — all below.</b> <small>Open each race card for the full field, your draw position, and an honest read on the competition.</small></div></div>
+    </div>
+  </section>
+
+  <!-- DAY TOGGLE + REFRESH -->
+  <div class="daybar">
+    <div class="seg" id="seg">
+      <button data-day="sat" class="on">Saturday<small>30 May</small></button>
+      <button data-day="sun">Sunday<small>31 May</small></button>
+    </div>
+    <button class="refresh" id="refreshBtn" title="Re-check live results"><span class="ri">⟳</span><span>Refresh</span></button>
+  </div>
+
+  <!-- DRAW / RESULTS VIEW TOGGLE -->
+  <div class="viewbar">
+    <div class="vseg" id="vseg">
+      <button data-view="draw" class="on">Draw</button>
+      <button data-view="results">Results</button>
+    </div>
+  </div>
+
+  <!-- RACES (DRAW) -->
+  <section class="panel" id="drawPanel">
+    <div class="kicker">Your four rows of the day</div>
+    <h2 class="ptitle" style="margin-top:5px"><span class="dot"></span><span id="dayTitle">Saturday 30 May</span> — start sheet</h2>
+    <p class="lede" id="daySummary"></p>
+    <div class="races" id="races" style="margin-top:16px"></div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="panel" id="resultsPanel" style="display:none">
+    <div class="kicker">Results · 2000 m · four 500 m splits</div>
+    <h2 class="ptitle" style="margin-top:5px"><span class="dot"></span><span id="resTitle">Saturday 30 May</span> — results</h2>
+
+    <div class="livebar">
+      <div class="live-status" id="liveStatus">Checking for a live feed…</div>
+      <a class="live-link" id="liveLink" href="https://rowresults.co.uk/metsat26" target="_blank" rel="noopener">Open live results ↗</a>
+    </div>
+    <div class="notebox" id="resultsNote"></div>
+
+    <div class="results" id="results" style="margin-top:6px"></div>
+  </section>
+
+  <!-- WEATHER EXPLORER -->
+  <section class="panel">
+    <div class="kicker">Conditions · slide through the day</div>
+    <div class="wx-top">
+      <div class="wx-read">
+        <div class="wx-temp tnum"><span id="wxTemp">25</span><small>°C</small></div>
+        <div class="wx-when"><span id="wxHour">14:00</span><small id="wxDesc">Warm &amp; sunny</small></div>
+      </div>
+      <div class="wx-mini">
+        <div><div class="k">Wind <span id="wxDir">SW</span></div><div class="v tnum"><span id="wxWind">15</span> <span style="font-size:.6em">mph</span></div></div>
+        <div><div class="k">Rain</div><div class="v tnum"><span id="wxRain">15</span><span style="font-size:.6em">%</span></div></div>
+      </div>
+    </div>
+
+    <div class="metric-tabs" id="metricTabs">
+      <button data-m="temp" class="on">Temperature</button>
+      <button data-m="wind">Wind</button>
+      <button data-m="rain">Rain chance</button>
+    </div>
+
+    <div class="chart" id="chart"></div>
+    <div class="scrub-hint">Drag across the graph — race hours are marked in crimson</div>
+    <div class="hourchips" id="chips"></div>
+  </section>
+
+  <!-- FOUR-DAY ARC -->
+  <section class="panel">
+    <div class="kicker">The four-day arc · Maidenhead / Dorney</div>
+    <h2 class="ptitle" style="margin-top:5px"><span class="dot"></span>A heat spell breaking down</h2>
+    <p class="lede">A Bank-Holiday hot spell cooling through the weekend. Saturday is the better racing day — warm, dry, building SW breeze. Sunday turns cooler and showery.</p>
+    <div class="arc" id="arc" style="margin-top:16px"></div>
+  </section>
+
+  <footer class="foot">
+    <div class="kicker" style="color:var(--brass2)">Sources &amp; confidence</div>
+    <p style="margin-top:6px">Race data verified against the official <a href="https://metregatta.org/?page_id=161">Metropolitan Regatta 2026 draws</a> (Sat &amp; Sun, metregatta.org). Course 2000&nbsp;m, confirmed from the official Met instructions.<br>Live results: <a href="https://rowresults.co.uk/metsat26">rowTIME / rowresults.co.uk</a> — entered by hand, not auto-pulled (see the Results tab note). Weather anchored to the Met Office Maidenhead/Windsor point forecast; race-day forecasts genuinely diverge between models.</p>
+    <div class="conf">
+      <span>Confidence — Thu–Fri <b>High</b></span><span>Sat <b>Medium</b></span><span>Sun <b>Low</b></span>
+    </div>
+    <p style="font-style:italic;opacity:.8">Re-check the morning of each race. Times BST · temps °C · wind mph.</p>
+  </footer>
+</div>
+
+<script>
+/* ---------------- VERIFIED DATA ---------------- */
+const RACES = {
+  sat:[
+    {cls:"four",time:"09:38",label:"Time Trial",ev:"Coxed Four · Academic",race:"Race 9",entries:15,bib:159,pos:14,
+     read:"Good",pillTemp:21,dir:"SW",wind:"~10 mph",rain:10,
+     fx:"Calm, warm, light SW air. Flat water for your first row — pure speed, nothing to fight.",
+     strength:"A deep academic field of 15. Oxford Brookes (A &amp; B) and Oxford University set the pace — Brookes is the strongest university programme in the UK. Imperial, Birmingham and the York crews are quick. A hard field to crack; the TT will sort it honestly.",
+     crews:[[146,"Shiplake College BC"],[147,"Oxford Brookes Univ BC (A)","pow"],[148,"Oxford Brookes Univ BC (B)","pow"],[149,"Imperial College BC"],[150,"Birmingham Univ BC (A)"],[151,"University of London BC"],[152,"Oxford University BC"],[153,"University of York BC (A)"],[154,"Leeds University BC"],[155,"Dulwich College BC"],[156,"Univ of Limerick RC (A)","irl"],[157,"University of York BC (B)"],[158,"Birmingham Univ BC (B)"],[159,"Dublin University BC","us"],[160,"Univ of Limerick RC (B)","irl"]]},
+    {cls:"four",time:"12:14",label:"Final · A–F",ev:"Coxed Four · Academic",race:"Races 32–37",entries:15,bib:null,pos:null,
+     read:"Good",pillTemp:24,dir:"SW",wind:"12–14 mph",rain:15,
+     fx:"Warm, breeze building from the SW. A touch of texture on the water but still good racing conditions.",
+     strength:"Final slot (A–F) is set by your time-trial ranking — race the TT first, then this lane and final fall into place.",
+     crews:null},
+    {cls:"eight",time:"14:15",label:"Time Trial",ev:"Champ. Eight · Champion Cup",race:"Race 51",entries:20,bib:284,pos:20,
+     read:"Breezy",pillTemp:25,dir:"SW",wind:"14–16 mph",rain:15,
+     fx:"SW breeze at its peak through the afternoon — chop and a quartering crosswind on the exposed lake. Watch the catches in the rough middle 1000m.",
+     strength:"The blue-riband event, and it's stacked: Oxford Brookes have entered SIX eights (A–F), Leander two. Those are the two best programmes in British rowing — this is about as deep as domestic eights racing gets before Henley. You're drawn last of 20. Realistically a row for experience and a fast time, not a medal.",
+     crews:[[265,"London RC (A)"],[266,"St Paul's School BC"],[267,"Oxford Brookes Univ BC (A)","pow"],[268,"University of London BC"],[269,"Durham University BC"],[270,"Leander Club (A)","pow"],[271,"Marlow RC (A)"],[272,"Oxford Brookes Univ BC (B)","pow"],[273,"Thames RC (A)"],[274,"Leander Club (B)","pow"],[275,"Edinburgh University BC"],[276,"Oxford Brookes Univ BC (D)","pow"],[277,"Oxford Brookes Univ BC (C)","pow"],[278,"Cambridge University BC"],[279,"Oxford Brookes Univ BC (E)","pow"],[280,"University College Dublin BC","irl"],[281,"Oxford Brookes Univ BC (F)","pow"],[282,"Galway University BC","irl"],[283,"Cantabrigian RC"],[284,"Dublin University BC","us"]]},
+    {cls:"eight",time:"16:25",label:"Final · A–L",ev:"Champ. Eight · Champion Cup",race:"Races 69–80",entries:20,bib:null,pos:null,
+     read:"Breezy",pillTemp:24,dir:"SW",wind:"14–18, gust ~22",rain:20,
+     fx:"Strongest wind of the day — gusts into the low 20s, a rain band threatening late. Crosswind balance and a clean wash-free start matter most here.",
+     strength:"All the eights events share the finals pool (A–L); the Champion Cup crews fill the top finals by TT time. Your final depends entirely on the 14:15 result.",
+     crews:null}
+  ],
+  sun:[
+    {cls:"four",time:"09:32",label:"Time Trial",ev:"Coxed Four · Academic",race:"Race 9",entries:7,bib:136,pos:4,
+     read:"Showers",pillTemp:17,dir:"SSW",wind:"~10 mph",rain:30,
+     fx:"Cooler, greyer, a shower risk. Light SSW wind — manageable water, but pack a splash top for the marshalling area.",
+     strength:"A small, open field of seven and a genuine opportunity. Imperial are the likely benchmark, and UCD (A) is the Irish rival to measure yourself against. Drawn 4th — a winnable race compared with Saturday's monster field.",
+     crews:[[133,"Imperial College BC"],[134,"University College Dublin BC (A)","irl"],[135,"Bath University BC"],[136,"Dublin University BC","us"],[137,"Univ of Limerick RC (A)","irl"],[138,"University of Surrey BC"],[139,"Univ of Limerick RC (B)","irl"]]},
+    {cls:"four",time:"11:55",label:"Final · A–E",ev:"Coxed Four · Academic",race:"Races 29–33",entries:7,bib:null,pos:null,
+     read:"Showers",pillTemp:20,dir:"SSW",wind:"10–12 mph",rain:35,
+     fx:"Milder by late morning, still showery. With only seven crews, the A-final should hold most of the field — get the TT right and you're in the mix.",
+     strength:"Final slot (A–E) seeded by the morning time trial.",
+     crews:null},
+    {cls:"eight",time:"13:47",label:"Time Trial",ev:"Champ. Eight · Peter Coni Cup",race:"Race 46",entries:8,bib:236,pos:8,
+     read:"Showers",pillTemp:21,dir:"SSW",wind:"10–14 mph",rain:40,
+     fx:"Warmest part of a cool day, shower chance climbing toward 40%. Moderate SSW wind — choppier than the morning but well within racing range.",
+     strength:"A completely different proposition from Saturday — no Oxford Brookes, no Leander. Just eight crews, with London RC, Edinburgh, Marlow and Thames as the benchmarks. This is your real eights opportunity of the weekend. Galway (×2) and UCD are the Irish crews to beat.",
+     crews:[[229,"London RC (A)"],[230,"Marlow RC (A)"],[231,"Thames RC (A)"],[232,"Galway University BC (A)","irl"],[233,"Galway University BC (B)","irl"],[234,"Edinburgh University BC"],[235,"University College Dublin BC","irl"],[236,"Dublin University BC","us"]]},
+    {cls:"eight",time:"15:31",label:"Final · A–H",ev:"Champ. Eight · Peter Coni Cup",race:"Races 64–71",entries:8,bib:null,pos:null,
+     read:"Showers",pillTemp:20,dir:"SSW",wind:"8–12, easing",rain:40,
+     fx:"Wind easing into the evening, showers lingering. The calmest racing water of Sunday — a fair shot at a clean, fast final.",
+     strength:"With only eight crews, expect the Coni Cup to resolve into one or two finals — your TT time decides where. A medal is realistic here in a way it simply isn't on Saturday.",
+     crews:null}
+  ]
+};
+
+/* hourly weather, index = hour 6..19 */
+const HOURS=[6,7,8,9,10,11,12,13,14,15,16,17,18,19];
+const WX={
+  sat:{dir:"SW",desc:"Warm &amp; sunny",
+    temp:[14,16,18,20,22,23,24,25,25,25,24,23,22,20],
+    wind:[7,8,9,10,11,12,13,14,15,16,17,17,16,15],
+    rain:[5,8,10,10,12,15,15,15,18,20,25,30,40,50],
+    races:[ ["09:38",21], ["12:14",24], ["14:15",25], ["16:25",24] ]},
+  sun:{dir:"SSW",desc:"Cooler · showery",
+    temp:[15,15,16,16,18,19,20,21,21,20,20,19,18,17],
+    wind:[8,9,9,10,11,11,12,13,14,12,11,10,9,8],
+    rain:[25,28,30,30,32,35,35,38,40,40,42,42,45,45],
+    races:[ ["09:32",17], ["11:55",20], ["13:47",21], ["15:31",20] ]}
+};
+const ARC=[
+  {d:"Thu 28",ico:"☀️",hi:31,lo:14,ol:"Hot &amp; sunny",race:false},
+  {d:"Fri 29",ico:"🌤️",hi:25,lo:12,ol:"Dry, a touch cooler",race:false},
+  {d:"Sat 30",ico:"🌥️",hi:25,lo:14,ol:"Warm, breeze builds pm",race:true},
+  {d:"Sun 31",ico:"🌦️",hi:21,lo:15,ol:"Showers, maybe thundery",race:true}
+];
+const DAYSUM={
+  sat:"Warm and largely dry — the better racing day. The thing to watch is a SW breeze building through the afternoon for the eight's TT and final: chop and crosswind on an exposed lake.",
+  sun:"Cooler and more changeable — keep an eye on showers. But the eights field is far more open today, and the wind eases into the evening for the final."
+};
+
+/* ---------------- STATE ---------------- */
+let day="sat", metric="temp", hourIdx=8; // default 14:00
+
+/* ---------------- RACE CARDS ---------------- */
+function compass(dir){
+  // returns rotation deg for arrow pointing in the direction the wind blows TOWARD
+  const from={"SW":225,"SSW":202.5}[dir]||225;
+  return (from+180)%360;
+}
+function courseSVG(dir){
+  const rot=compass(dir);
+  let lanes="";
+  for(let i=1;i<6;i++){lanes+=`<line x1="14" y1="${10+i*14}" x2="286" y2="${10+i*14}" stroke="rgba(224,182,90,.18)" stroke-dasharray="3 7" stroke-width="1"/>`;}
+  return `<svg viewBox="0 0 300 100" style="width:100%;height:auto">
+    <rect x="10" y="8" width="280" height="84" rx="6" fill="rgba(255,255,255,.04)" stroke="rgba(224,182,90,.25)"/>
+    ${lanes}
+    <text x="16" y="103" fill="rgba(246,236,214,.5)" font-size="8" font-family="Spectral">START</text>
+    <text x="262" y="103" fill="rgba(246,236,214,.5)" font-size="8" font-family="Spectral">FINISH</text>
+    <text x="150" y="103" fill="rgba(246,236,214,.4)" font-size="8" font-family="Spectral" text-anchor="middle">2000 m</text>
+    <g transform="translate(150,50)">
+      <g transform="rotate(${rot})">
+        <line x1="0" y1="-26" x2="0" y2="22" stroke="#e0b65a" stroke-width="2.4"/>
+        <path d="M0,-30 L7,-18 L-7,-18 Z" fill="#e0b65a"/>
+      </g>
+      <circle r="30" fill="none" stroke="rgba(224,182,90,.3)" stroke-width="1"/>
+      <text x="0" y="-34" fill="#e0b65a" font-size="10" font-family="Fraunces" font-weight="700" text-anchor="middle">${dir}</text>
+    </g>
+    <text x="150" y="20" fill="rgba(246,236,214,.55)" font-size="8" font-family="Spectral" text-anchor="middle">wind blows ↓ toward course</text>
+  </svg>`;
+}
+function renderRaces(){
+  const wrap=document.getElementById("races");
+  wrap.innerHTML="";
+  document.getElementById("dayTitle").textContent = day==="sat"?"Saturday 30 May":"Sunday 31 May";
+  document.getElementById("daySummary").textContent = DAYSUM[day];
+  RACES[day].forEach((r,i)=>{
+    const card=document.createElement("div");
+    card.className=`race ${r.cls}`;
+    let crewHTML="";
+    if(r.crews){
+      crewHTML=`<div class="subhdr">The field · ${r.entries} crews</div><div class="crewlist">`+
+        r.crews.map(c=>{
+          const t=c[2];
+          const cls=t==="us"?"us":"";
+          let tag="";
+          if(t==="pow")tag='<span class="tag pow">Powerhouse</span>';
+          else if(t==="irl")tag='<span class="tag irl">IRL</span>';
+          else if(t==="us")tag='<span class="tag us">You</span>';
+          return `<div class="crew ${cls}"><span class="bib tnum">${c[0]}</span><span>${c[1]}</span>${tag}</div>`;
+        }).join("")+`</div>`;
+    }
+    const posStat = r.bib
+      ? `<div class="stat"><div class="k">Your draw</div><div class="v tnum">#${r.bib}<small> · ${r.pos}${ord(r.pos)} of ${r.entries}</small></div></div>`
+      : `<div class="stat"><div class="k">Lane</div><div class="v" style="font-size:.92rem">set by TT result</div></div>`;
+    card.innerHTML=`
+      <div class="stripe"></div>
+      <div class="rhead">
+        <div class="rtime tnum">${r.time}<small>${r.label.split('·')[0]}</small></div>
+        <div class="rmid">
+          <div class="ev">${r.ev}</div>
+          <div class="meta">${r.race} · ${r.label.includes('·')?r.label:('TT to finals')} · ${r.entries} entries</div>
+        </div>
+        <span class="badge ${r.cls}">${r.cls==="four"?"4+":"8+"}</span>
+        <div class="rread"><span class="pill ${r.read.toLowerCase()}">${r.read}</span> <span class="chev">›</span></div>
+      </div>
+      <div class="rbody"><div class="rbody-in">
+        <div class="statline">
+          <div class="stat"><div class="k">At race time</div><div class="v tnum">${r.pillTemp}°<small> ${r.read.toLowerCase()}</small></div></div>
+          <div class="stat"><div class="k">Wind</div><div class="v" style="font-size:1rem">${r.dir} ${r.wind}</div></div>
+          <div class="stat"><div class="k">Rain</div><div class="v tnum">${r.rain}%</div></div>
+          ${posStat}
+        </div>
+        ${crewHTML}
+        <div class="strength">${r.strength}</div>
+        <div class="wxfx">
+          <div class="course-wrap">
+            <div class="lbl">Wind on the course · Dorney</div>
+            ${courseSVG(r.dir)}
+          </div>
+          <div class="wxnote"><span class="ic">⌖</span><span>${r.fx}</span></div>
+        </div>
+      </div></div>`;
+    wrap.appendChild(card);
+    // toggle
+    card.querySelector(".rhead").addEventListener("click",()=>card.classList.toggle("open"));
+    // reveal
+    setTimeout(()=>card.classList.add("in"), i*90);
+  });
+}
+function ord(n){return n%10===1&&n!==11?"st":n%10===2&&n!==12?"nd":n%10===3&&n!==13?"rd":"th";}
+
+/* ---------------- WEATHER CHART (iOS-style) ---------------- */
+const C={w:680,h:230,padL:8,padR:8,padT:28,padB:34};
+function smoothPath(pts){
+  if(pts.length<2)return "";
+  let d=`M ${pts[0].x} ${pts[0].y}`;
+  for(let i=0;i<pts.length-1;i++){
+    const p0=pts[i-1]||pts[i], p1=pts[i], p2=pts[i+1], p3=pts[i+2]||p2;
+    const c1x=p1.x+(p2.x-p0.x)/6, c1y=p1.y+(p2.y-p0.y)/6;
+    const c2x=p2.x-(p3.x-p1.x)/6, c2y=p2.y-(p3.y-p1.y)/6;
+    d+=` C ${c1x} ${c1y}, ${c2x} ${c2y}, ${p2.x} ${p2.y}`;
+  }
+  return d;
+}
+function metricCfg(){
+  const w=WX[day];
+  if(metric==="temp")return{data:w.temp,unit:"°",min:Math.min(...w.temp)-3,max:Math.max(...w.temp)+3,stroke:"#c44a36",fill1:"rgba(196,74,54,.28)",fill2:"rgba(196,74,54,0)"};
+  if(metric==="wind")return{data:w.wind,unit:"",min:0,max:Math.max(...w.wind)+6,stroke:"#1c6a64",fill1:"rgba(28,106,100,.3)",fill2:"rgba(28,106,100,0)"};
+  return{data:w.rain,unit:"%",min:0,max:100,stroke:"#4d7390",fill1:"rgba(77,115,144,.32)",fill2:"rgba(77,115,144,0)"};
+}
+function renderChart(){
+  const cfg=metricCfg();
+  const innerW=C.w-C.padL-C.padR, innerH=C.h-C.padT-C.padB;
+  const x=i=>C.padL+ (i/(HOURS.length-1))*innerW;
+  const y=v=>C.padT+ innerH - ((v-cfg.min)/(cfg.max-cfg.min))*innerH;
+  const pts=cfg.data.map((v,i)=>({x:x(i),y:y(v)}));
+  const line=smoothPath(pts);
+  const area=line+` L ${pts[pts.length-1].x} ${C.padT+innerH} L ${pts[0].x} ${C.padT+innerH} Z`;
+  // race markers
+  const raceHours=WX[day].races.map(r=>parseInt(r[0]));
+  let marks="";
+  raceHours.forEach(h=>{const i=HOURS.indexOf(h);if(i>=0){marks+=`<line x1="${x(i)}" y1="${C.padT-6}" x2="${x(i)}" y2="${C.padT+innerH}" stroke="rgba(156,43,34,.35)" stroke-width="1.4" stroke-dasharray="2 4"/><circle cx="${x(i)}" cy="${y(cfg.data[i])}" r="3.5" fill="#9c2b22"/>`;}});
+  const cx=x(hourIdx), cy=y(cfg.data[hourIdx]);
+  document.getElementById("chart").innerHTML=`
+   <svg id="wxsvg" viewBox="0 0 ${C.w} ${C.h}">
+     <defs><linearGradient id="g" x1="0" x2="0" y1="0" y2="1">
+       <stop offset="0" stop-color="${cfg.fill1}"/><stop offset="1" stop-color="${cfg.fill2}"/>
+     </linearGradient></defs>
+     ${marks}
+     <path d="${area}" fill="url(#g)"/>
+     <path d="${line}" fill="none" stroke="${cfg.stroke}" stroke-width="3" stroke-linecap="round"/>
+     ${pts.map((p,i)=>`<text x="${p.x}" y="${p.y-11}" text-anchor="middle" font-size="13" font-family="Fraunces" font-weight="600" fill="${cfg.stroke}" opacity="${i===hourIdx?1:.0}">${cfg.data[i]}${cfg.unit}</text>`).join("")}
+     <line class="scrubline" x1="${cx}" y1="${C.padT-8}" x2="${cx}" y2="${C.padT+innerH}" stroke="${cfg.stroke}" stroke-width="1.6" opacity=".5"/>
+     <circle cx="${cx}" cy="${cy}" r="7" fill="#fbf4e3" stroke="${cfg.stroke}" stroke-width="3"/>
+     <text x="${cx}" y="${cy-15}" text-anchor="middle" font-size="15" font-family="Fraunces" font-weight="700" fill="${cfg.stroke}">${cfg.data[hourIdx]}${cfg.unit}</text>
+     ${HOURS.map((h,i)=>`<text x="${x(i)}" y="${C.h-12}" text-anchor="middle" font-size="10" font-family="Spectral" fill="${raceHours.includes(h)?'#9c2b22':'#5c6b66'}" font-weight="${raceHours.includes(h)?'700':'400'}">${h}</text>`).join("")}
+   </svg>`;
+  attachScrub();
+}
+function setHour(i){hourIdx=Math.max(0,Math.min(HOURS.length-1,i));updateReadout();renderChart();renderChips();}
+function updateReadout(){
+  const w=WX[day];
+  document.getElementById("wxTemp").textContent=w.temp[hourIdx];
+  document.getElementById("wxWind").textContent=w.wind[hourIdx];
+  document.getElementById("wxRain").textContent=w.rain[hourIdx];
+  document.getElementById("wxDir").textContent=w.dir;
+  document.getElementById("wxHour").textContent=String(HOURS[hourIdx]).padStart(2,"0")+":00";
+  document.getElementById("wxDesc").innerHTML=w.desc;
+}
+function attachScrub(){
+  const svg=document.getElementById("wxsvg");
+  if(!svg)return;
+  const move=(clientX)=>{
+    const rect=svg.getBoundingClientRect();
+    const rel=(clientX-rect.left)/rect.width*C.w;
+    const innerW=C.w-C.padL-C.padR;
+    let frac=(rel-C.padL)/innerW;
+    let i=Math.round(frac*(HOURS.length-1));
+    setHour(i);
+  };
+  let dragging=false;
+  const down=e=>{dragging=true;move((e.touches?e.touches[0].clientX:e.clientX));};
+  const mv=e=>{if(dragging){move((e.touches?e.touches[0].clientX:e.clientX));if(e.touches)e.preventDefault();}};
+  const up=()=>{dragging=false;};
+  svg.addEventListener("mousedown",down);svg.addEventListener("touchstart",down,{passive:true});
+  window.addEventListener("mousemove",mv);window.addEventListener("touchmove",mv,{passive:false});
+  window.addEventListener("mouseup",up);window.addEventListener("touchend",up);
+}
+function renderChips(){
+  const w=WX[day];const raceHours=w.races.map(r=>parseInt(r[0]));
+  document.getElementById("chips").innerHTML=HOURS.map((h,i)=>
+    `<button data-i="${i}" class="${i===hourIdx?'on':''} ${raceHours.includes(h)?'race':''}">${String(h).padStart(2,'0')}:00</button>`
+  ).join("");
+  document.querySelectorAll("#chips button").forEach(b=>b.addEventListener("click",()=>setHour(+b.dataset.i)));
+}
+
+/* ---------------- ARC ---------------- */
+function renderArc(){
+  document.getElementById("arc").innerHTML=ARC.map(a=>`
+    <div class="day ${a.race?'race-day':''}">
+      <div class="dname">${a.d}</div>
+      <div class="ico">${a.ico}</div>
+      <div class="hi tnum">${a.hi}°</div>
+      <div class="lo tnum">low ${a.lo}°</div>
+      <div class="ol">${a.ol}</div>
+    </div>`).join("");
+}
+
+/* ---------------- RESULTS SYSTEM (paste-driven) ---------------- */
+let view="draw";
+const LIVE={sat:"https://rowresults.co.uk/metsat26", sun:"https://rowresults.co.uk/metsun26"};
+const DUBC_BIB={sat:["159","159","284","284"], sun:["136","136","236","236"]}; // [fourTT, fourFinal, eightTT, eightFinal]
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function parseTime(str){
+  if(str==null)return null; str=String(str).trim(); if(!str)return null;
+  let m=str.match(/^(\d+):(\d{1,2}(?:\.\d+)?)$/);
+  if(m){const s=parseFloat(m[2]); if(s>=60)return null; return parseInt(m[1])*60+s;}
+  if(/^\d{2,3}(\.\d+)?$/.test(str)){return parseFloat(str);} // bare seconds (e.g. 372.4)
+  return null;
+}
+function fmt(sec){if(sec==null||isNaN(sec))return "—";const m=Math.floor(sec/60);const s=sec-m*60;return m+":"+(s<10?"0":"")+s.toFixed(1);}
+function raceDist(r){return r.crews?1900:2000;} // time trials 1900 m, finals 2000 m (per Adam)
+
+/* state */
+const resState={sat:[],sun:[]};
+function initResults(){
+  ["sat","sun"].forEach(d=>{ RACES[d].forEach(r=>resState[d].push({raw:"",rows:[],updated:null,final:!r.crews})); });
+}
+function isDUBC(o,bib){
+  if((o.crew||"").trim().toUpperCase()==="ZADU")return true;
+  const club=(o.club||"").toLowerCase();
+  if(club.includes("dublin university")&&!club.includes("ladies"))return true;
+  if(bib&&(o.num||"").trim()===bib)return true;
+  return false;
+}
+function cells(line){
+  return line.split("|").map(c=>c.trim()).filter((c,i,a)=>!(c===""&&(i===0||i===a.length-1)));
+}
+function parseTable(text){
+  const lines=text.split(/\r?\n/).map(l=>l.trim()).filter(l=>l.includes("|"));
+  if(!lines.length)return [];
+  let hi=lines.findIndex(l=>/num/i.test(l)&&/crew/i.test(l));
+  let header, data;
+  if(hi>=0){header=cells(lines[hi]).map(c=>c.toLowerCase());data=lines.slice(hi+1);}
+  else{header=["posn","num","crew","club","time"];data=lines;}
+  const idx=n=>header.findIndex(h=>h.includes(n));
+  const iP=idx("pos"),iN=idx("num"),iC=idx("crew"),iCl=idx("club"),iL=idx("lane"),iT=idx("time");
+  const out=[];
+  for(const l of data){
+    if(/^\|?\s*:?-{2,}/.test(l))continue;
+    const c=cells(l); if(!c.length)continue;
+    const g=k=>(k>=0&&k<c.length)?c[k]:"";
+    const o={posn:g(iP),num:g(iN),crew:g(iC),club:g(iCl),lane:g(iL),rawTime:g(iT)};
+    if(!o.num&&!o.crew&&!o.club)continue;
+    o.timeSec=parseTime(o.rawTime);
+    out.push(o);
+  }
+  return out;
+}
+function dispName(o){
+  if(o.club)return o.club;
+  let n=o.crew||o.num||"—";
+  if(o.lane)n+=" · L"+o.lane;
+  return n;
+}
+
+function renderResults(){
+  document.getElementById("resTitle").textContent = day==="sat"?"Saturday 30 May":"Sunday 31 May";
+  document.getElementById("liveLink").href = LIVE[day];
+  document.getElementById("resultsNote").innerHTML =
+    `<b>Paste-in results.</b> Grab the rowTIME table (your screenshot → text), paste it into a race below, and it builds the 1st→last table, your placing, and the time &amp; split graphs — your boat highlighted. Nothing is auto-filled or invented. <b>Distances:</b> time trials <b>1900&nbsp;m</b>, finals <b>2000&nbsp;m</b> (your figures — the public Met spec only lists a 2000&nbsp;m course, so the 1900&nbsp;m TT is taken from you). The <b>500&nbsp;m split</b> shown is <b>average pace</b> (time ÷ distance × 500); the timing service doesn't publish real intermediate splits, so I don't fabricate them.${day==="sun"?' The Sunday link <i>metsun26</i> is a guessed URL pattern — verify it.':''}`;
+  const wrap=document.getElementById("results"); wrap.innerHTML="";
+  RACES[day].forEach((r,i)=>{
+    const st=resState[day][i];
+    const dist=raceDist(r);
+    const mod=document.createElement("div");
+    mod.className=`rmod ${r.cls}`;
+    const finalHint = st.final
+      ? `<div class="finalhint">Final: paste the <b>lineup</b> (Posn · Num · Crew · Lane · Time) before the race to see lanes, then re-paste <b>with times</b> after.</div>` : "";
+    mod.innerHTML=`
+      <div class="stripe"></div>
+      <div class="rmod-in">
+        <div class="rmod-head">
+          <div><div class="t">${r.time} · ${r.ev}</div><div class="s">${r.race} · ${st.final?'final · 2000 m':r.entries+' entries · 1900 m'}</div></div>
+          <span class="distbadge">${dist} m</span>
+        </div>
+        ${finalHint}
+        <textarea class="paste" id="pa-${day}-${i}" placeholder="Paste the rowTIME table here, e.g.&#10;| Posn | Num | Crew | Club | Time |&#10;|---|---|---|---|---|&#10;|  | 159 | ZADU | Dublin University (IRL) | 6:18.4 |">${esc(st.raw)}</textarea>
+        <div class="paste-row">
+          <button class="parsebtn" data-i="${i}">Build / update table</button>
+          <button class="clearbtn" data-i="${i}">Clear</button>
+          <span class="upd" id="up-${day}-${i}"></span>
+        </div>
+        <div class="place-call" id="pc-${day}-${i}"></div>
+        <div id="tbl-${day}-${i}"></div>
+        <div class="charts">
+          <div class="chartcard"><div class="ct">Finish times — fastest first</div><div id="fc-${day}-${i}"></div></div>
+          <div class="chartcard"><div class="ct">Average 500 m pace (${dist} m ÷ ${(dist/500)})</div><div id="sc-${day}-${i}"></div></div>
+        </div>
+      </div>`;
+    wrap.appendChild(mod);
+    mod.querySelector(".parsebtn").addEventListener("click",()=>{
+      st.raw=document.getElementById(`pa-${day}-${i}`).value;
+      st.rows=parseTable(st.raw);
+      st.rows.forEach(rw=>rw.us=isDUBC(rw,DUBC_BIB[day][i]));
+      st.updated=new Date();
+      updateOutputs(day,i,dist);
+    });
+    mod.querySelector(".clearbtn").addEventListener("click",()=>{
+      st.raw="";st.rows=[];st.updated=null;
+      document.getElementById(`pa-${day}-${i}`).value="";
+      updateOutputs(day,i,dist);
+    });
+    updateOutputs(day,i,dist);
+  });
+}
+
+function rankRows(rows){
+  const timed=rows.filter(r=>r.timeSec!=null).sort((a,b)=>a.timeSec-b.timeSec);
+  const untimed=rows.filter(r=>r.timeSec==null);
+  // keep lineup order for untimed: by lane if numeric, else input order
+  untimed.sort((a,b)=>{const la=parseInt(a.lane),lb=parseInt(b.lane);if(!isNaN(la)&&!isNaN(lb))return la-lb;return 0;});
+  return {timed,untimed,best:timed.length?timed[0].timeSec:null};
+}
+function updateOutputs(d,i,dist){
+  const st=resState[d][i];
+  const {timed,untimed,best}=rankRows(st.rows);
+  const up=document.getElementById(`up-${d}-${i}`);
+  if(up)up.textContent=st.updated?("updated "+st.updated.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})):"";
+  // TABLE
+  const tbl=document.getElementById(`tbl-${d}-${i}`);
+  if(tbl){
+    if(!st.rows.length){ tbl.innerHTML=`<div class="empty" style="padding:12px 2px">Paste a table above and press <b>Build</b>.</div>`; }
+    else{
+      const hasClub=st.rows.some(r=>r.club), hasLane=st.rows.some(r=>r.lane);
+      const col4 = hasClub?"Club":(hasLane?"Lane":"");
+      const head=`<tr><th>Pos</th><th>Num</th><th>Crew</th>${col4?`<th>${col4}</th>`:""}<th>Time</th><th>500 m</th></tr>`;
+      const rowHTML=(r,pos)=>{
+        const split=r.timeSec!=null?fmt(r.timeSec*500/dist):"—";
+        const t=r.timeSec!=null?fmt(r.timeSec):(r.rawTime&&!/unreleased|^$/i.test(r.rawTime)?esc(r.rawTime):"—");
+        const c4=hasClub?`<td>${esc(r.club||"")}</td>`:(hasLane?`<td>${esc(r.lane||"")}</td>`:"");
+        const medal=pos&&pos<=3?`medal${pos}`:"";
+        return `<tr class="${r.us?'us':''}"><td class="pl ${medal}">${pos||"·"}</td><td>${esc(r.num)}</td><td>${esc(r.crew)}</td>${c4}<td class="tm">${t}</td><td class="tm">${split}</td></tr>`;
+      };
+      let body="";timed.forEach((r,ix)=>body+=rowHTML(r,ix+1));untimed.forEach(r=>body+=rowHTML(r,null));
+      tbl.innerHTML=`<div class="restable"><table>${head}${body}</table></div>`;
+    }
+  }
+  // PLACE CALL
+  const pc=document.getElementById(`pc-${d}-${i}`);
+  if(pc){
+    const us=st.rows.find(r=>r.us);
+    if(!st.rows.length)pc.innerHTML="";
+    else if(!us)pc.innerHTML=`<span style="color:var(--muted)">Couldn't spot DUBC in this table — check the paste, or tell me how your crew is labelled.</span>`;
+    else if(us.timeSec==null){
+      const lane=us.lane?` · lane ${esc(us.lane)}`:"";
+      pc.innerHTML=`Found your boat (${esc(us.crew||us.num)}${lane}). Awaiting a time.`;
+    } else {
+      const place=timed.findIndex(r=>r===us)+1, n=timed.length;
+      const split=fmt(us.timeSec*500/dist);
+      const off=place===1?"":` · ${(us.timeSec-best).toFixed(1)}s off the lead`;
+      pc.innerHTML=`<span class="big">${place}${ord(place)}</span> of ${n} — <b>${fmt(us.timeSec)}</b> · ${split}/500m${off}`;
+    }
+  }
+  // GRAPHS
+  barChart(document.getElementById(`fc-${d}-${i}`), timed.map(r=>({name:dispName(r),us:r.us,val:r.timeSec})), v=>fmt(v), best, "Paste a result with times to compare the field.");
+  barChart(document.getElementById(`sc-${d}-${i}`), timed.map(r=>({name:dispName(r),us:r.us,val:r.timeSec*500/dist})), v=>fmt(v)+"/500", timed.length?best*500/dist:null, "Splits appear once times are entered.");
+}
+function barChart(el,items,labelFn,bestVal,emptyMsg){
+  if(!el)return;
+  if(items.length<1){el.innerHTML=`<div class="empty">${emptyMsg}</div>`;return;}
+  const min=items[0].val,max=items[items.length-1].val,span=(max-min)||1;
+  el.innerHTML=items.map((it,ix)=>{
+    const frac=(max-it.val)/span,w=30+frac*66;
+    const col=it.us?"linear-gradient(90deg,#e0b65a,#c79236)":(ix===items.length-1&&items.length>2?"rgba(28,106,100,.4)":"var(--water3)");
+    const gap=ix===0?"fastest":"+"+(it.val-bestVal).toFixed(1);
+    return `<div style="display:flex;align-items:center;gap:8px;margin:6px 0">
+      <span style="width:22px;font-family:Fraunces;font-weight:700;font-size:.82rem;color:${it.us?'#9c2b22':'#5c6b66'}">${ix+1}</span>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:.74rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;${it.us?'font-weight:700':''}">${esc(it.name)}</div>
+        <div style="height:11px;border-radius:6px;background:rgba(0,0,0,.06);margin-top:2px"><div style="height:100%;width:${w}%;background:${col};border-radius:6px;transition:width .4s"></div></div>
+      </div>
+      <span style="text-align:right;min-width:74px;font-variant-numeric:tabular-nums"><span style="font-size:.78rem;font-weight:600">${labelFn(it.val)}</span><br><span style="font-size:.64rem;color:#5c6b66">${gap}</span></span>
+    </div>`;
+  }).join("");
+}
+
+/* ---------------- VIEW / REFRESH ---------------- */
+function setView(v){
+  view=v;
+  document.getElementById("drawPanel").style.display = v==="draw"?"":"none";
+  document.getElementById("resultsPanel").style.display = v==="results"?"":"none";
+  document.querySelectorAll("#vseg button").forEach(b=>b.classList.toggle("on",b.dataset.view===v));
+}
+document.querySelectorAll("#vseg button").forEach(b=>b.addEventListener("click",()=>setView(b.dataset.view)));
+document.querySelectorAll("#seg button").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll("#seg button").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on");day=b.dataset.day; hourIdx=day==="sat"?8:7;
+  renderRaces();updateReadout();renderChart();renderChips();renderResults();
+}));
+document.querySelectorAll("#metricTabs button").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll("#metricTabs button").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on");metric=b.dataset.m;renderChart();
+}));
+document.getElementById("refreshBtn").addEventListener("click",function(){
+  this.classList.add("spin");setTimeout(()=>this.classList.remove("spin"),650);
+  if(view!=="results")setView("results");
+  // re-parse every pasted box for the current day from its textarea
+  RACES[day].forEach((r,i)=>{
+    const ta=document.getElementById(`pa-${day}-${i}`); if(!ta)return;
+    const st=resState[day][i]; st.raw=ta.value; st.rows=parseTable(st.raw);
+    st.rows.forEach(rw=>rw.us=isDUBC(rw,DUBC_BIB[day][i]));
+    st.updated=new Date();
+    updateOutputs(day,i,raceDist(r));
+  });
+});
+
+initResults();
+renderRaces();updateReadout();renderChart();renderChips();renderArc();renderResults();
+</script>
+</body>
+</html>

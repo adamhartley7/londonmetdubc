@@ -431,7 +431,7 @@
 
   <!-- RESULTS -->
   <section class="panel" id="resultsPanel" style="display:none">
-    <div class="kicker">Results · 2000 m · four 500 m splits</div>
+    <div class="kicker">Results · auto-updating from your site · 1900 m TT / 2000 m final</div>
     <h2 class="ptitle" style="margin-top:5px"><span class="dot"></span><span id="resTitle">Saturday 30 May</span> — results</h2>
 
     <div class="livebar">
@@ -882,33 +882,32 @@ function barChart(el,items,labelFn,bestVal,emptyMsg){
 
 /* ---- live fetch ---- */
 async function getJSON(url){ const r=await fetch(url,{cache:"no-store"}); if(!r.ok)throw new Error("HTTP "+r.status); return r.json(); }
-function setLiveStatus(state,extra){
+function setLiveStatus(state,info){
   const el=document.getElementById("liveStatus"); if(!el)return;
   el.className="live-status"+(state==="blocked"?" err":"");
   const t=new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"});
-  if(state==="checking")el.innerHTML=`<span class="led"></span> Checking rowresults…`;
-  else if(state==="ok")el.innerHTML=`<span class="led"></span> Live — pulled from rowresults <span class="ts">at ${t}</span>`;
-  else if(state==="blocked")el.innerHTML=`<span class="led"></span> Couldn’t reach rowresults from the browser${extra?" ("+extra+")":""} — paste below, or rely on the phone alerts. <span class="ts">tried ${t}</span>`;
+  if(state==="checking"){el.innerHTML=`<span class="led"></span> Checking your site for results…`;return;}
+  if(state==="ok"){
+    let when=""; if(info){const d=new Date(info); if(!isNaN(d.getTime())) when=` <span class="ts">· data from ${d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</span>`;}
+    el.innerHTML=`<span class="led"></span> Live from your site${when}`; return;
+  }
+  el.innerHTML=`<span class="led"></span> No results file found yet${info?" ("+info+")":""} — it appears after the robot’s first run on your github.io site (won’t load inside the Claude preview). Paste a race below meanwhile. <span class="ts">tried ${t}</span>`;
 }
 async function updateLive(day){
   setLiveStatus("checking");
-  const code=FEEDCODE[day];
-  let info;
-  try{ info=await getJSON(`https://rowresults.co.uk/raceinfo.php?c=${code}`); }
-  catch(e){ setLiveStatus("blocked","cross-site block"); return; }
-  setLiveStatus("ok");
+  let data;
+  try{ data=await getJSON("results.json?t="+Date.now()); }   // same-site file the robot writes — no cross-site wall
+  catch(e){ setLiveStatus("blocked","results.json not reachable here"); return; }
+  setLiveStatus("ok", data.updated);
+  const entries = data[day] || [];
   for(let i=0;i<SLOTS[day].length;i++){
     const slot=SLOTS[day][i], st=resState[day][i];
     if(st.paste) continue;
-    const row=(info.data||[]).find(r=> r.Event===slot.ev && roundMatches(r.Round,slot) && (r.SearchInfo||"").includes("ZADU"));
-    if(!row){ st.status="notdrawn"; st.rows=[]; st.raceNo=null; updateSlotOutputs(day,i); continue; }
-    st.raceNo=row.Race; st.round=row.Round; st.time=row.Time;
-    try{
-      const det=await getJSON(`https://rowresults.co.uk/results/${code}/Race${row.Race}.json`);
-      st.rows=rowsFromJSON(det); st.rows.forEach(r=>r.us=isDUBC(r));
-      st.resultStatus=(det&&det.race)?det.race.ResultStatus:"";
-      st.status="live"; st.updated=new Date();
-    }catch(e){ st.status="error"; }
+    const m = entries.find(e=> e.boat===slot.boat && e.roundType===slot.round);
+    if(!m){ st.status="notdrawn"; st.rows=[]; st.raceNo=null; updateSlotOutputs(day,i); continue; }
+    st.raceNo=m.raceNo; st.round=m.round; st.time=m.time;
+    st.rows=rowsFromJSON(m); st.rows.forEach(r=>r.us=isDUBC(r));
+    st.resultStatus=m.resultStatus||""; st.status="live"; st.updated=new Date();
     updateSlotOutputs(day,i);
   }
 }
@@ -918,7 +917,7 @@ function renderResults(){
   document.getElementById("resTitle").textContent = day==="sat"?"Saturday 30 May":"Sunday 31 May";
   document.getElementById("liveLink").href = LIVE[day];
   document.getElementById("resultsNote").innerHTML =
-    `<b>Live results.</b> Press <b>Update now</b> (top) to pull straight from rowresults, or turn on Auto-refresh. It finds your boats by club code <b>ZADU</b>, ranks the field 1st→last, marks your crew, and draws the time &amp; split graphs — nothing is invented. <b>Distances:</b> time trials <b>1900&nbsp;m</b>, finals <b>2000&nbsp;m</b> (your figures); the <b>500&nbsp;m split</b> is average pace (time ÷ distance × 500). If the browser can’t reach rowresults (a cross-site block — likely), each race has a paste box: open the <i>Live page</i> link, open a race’s data, and paste it (the raw <b>{…}</b> JSON or a results table). The phone alerts don’t depend on any of this.`;
+    `<b>Live from your site.</b> The robot (GitHub Actions) pulls rowresults every few minutes and writes the data into your repo; this page reads that file, so it fills in <b>automatically</b> — no pasting, no cross-site wall. With Auto-refresh on it updates itself about once a minute. It finds your boats by club code <b>ZADU</b>, ranks the field 1st→last, marks your crew, and draws the time &amp; split graphs — nothing is invented. <b>Distances:</b> time trials <b>1900&nbsp;m</b>, finals <b>2000&nbsp;m</b>; the <b>500&nbsp;m split</b> is average pace (time ÷ distance × 500). This works on your <b>github.io</b> site, not the Claude preview (which can’t read the file). Each race still has a paste box as a manual backup.`;
   const wrap=document.getElementById("results"); wrap.innerHTML="";
   SLOTS[day].forEach((slot,i)=>{
     const mod=document.createElement("div");

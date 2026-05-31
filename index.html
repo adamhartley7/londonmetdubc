@@ -196,6 +196,55 @@
   .restable td.pl{font-family:"Fraunces";font-weight:700;width:34px}
   .restable td.pl.medal1{color:#b8860b}.restable td.pl.medal2{color:#7d7d7d}.restable td.pl.medal3{color:#a0623a}
 
+  .autobtn{font-family:"Spectral";font-weight:600;font-size:.82rem;color:var(--muted);
+    background:rgba(255,255,255,.5);border:1px solid var(--line);border-radius:24px;padding:7px 14px;cursor:pointer}
+  .autobtn.on{background:var(--good);color:#fff;border-color:var(--good)}
+  .slot-status{font-size:.8rem;font-weight:600;display:inline-flex;align-items:center;gap:6px;margin-top:2px}
+  .slot-status .led{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+  .slot-status.live{color:var(--good)} .slot-status.live .led{background:var(--good)}
+  .slot-status.wait{color:var(--breezy)} .slot-status.wait .led{background:var(--breezy)}
+  .slot-status.blocked{color:var(--crimson)} .slot-status.blocked .led{background:var(--crimson)}
+  .slot-status.paste{color:var(--water2)} .slot-status.paste .led{background:var(--water2)}
+  .slot-status .ts{color:var(--muted);font-weight:400}
+  .fallback{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}
+  .fallback summary{font-size:.82rem;color:var(--muted);cursor:pointer;font-weight:600}
+  .fallback .hint{font-size:.8rem;color:var(--muted);margin:8px 0}
+  .backlive{font-family:"Spectral";font-size:.78rem;font-weight:600;color:var(--water2);
+    background:none;border:1px solid var(--water3);border-radius:20px;padding:5px 11px;cursor:pointer;margin-left:8px}
+
+  /* ---- CoxBox ---- */
+  .coxsum{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+  .coxsum .s{background:var(--paper2);border:1px solid var(--line);border-radius:13px;padding:10px 15px;min-width:104px}
+  .coxsum .s .k{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .coxsum .s .v{font-family:"Fraunces";font-weight:700;font-size:1.45rem;line-height:1.05;margin-top:2px}
+  .coxsum .s .v small{font-weight:400;font-size:.62rem;color:var(--muted)}
+  .coxline{position:relative}
+  .coxline svg{display:block;width:100%;height:auto;overflow:visible}
+  .cox-consensus{margin-top:18px}
+  .conslabel{display:block;font-family:"Fraunces";font-weight:600;font-size:1.05rem;margin-bottom:6px}
+  #coxConsensus{width:100%;min-height:70px;font-family:"Spectral";font-size:.92rem;line-height:1.5;
+    padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:#fffdf6;color:var(--ink);resize:vertical}
+  #coxConsensus:focus{outline:2px solid var(--brass2);border-color:var(--brass2)}
+  .analysis{margin-top:18px}
+  .analysis h3{font-family:"Fraunces";font-weight:700;font-size:1.3rem;margin-bottom:4px}
+  .ana-shape{padding:12px 15px;border-radius:13px;background:rgba(16,28,27,.05);margin:10px 0 16px;font-size:.95rem}
+  .ana-shape b{font-family:"Fraunces"}
+  .ana-col h4{font-family:"Fraunces";font-weight:600;font-size:1.02rem;display:flex;align-items:center;gap:8px;margin:14px 0 8px}
+  .ana-col.good h4{color:var(--good)}
+  .ana-col.imp h4{color:var(--crimson)}
+  .ana-item{border-radius:12px;padding:11px 14px;margin:8px 0;font-size:.92rem;line-height:1.5}
+  .ana-col.good .ana-item{background:rgba(47,125,91,.08);border-left:3px solid var(--good)}
+  .ana-col.imp .ana-item{background:rgba(156,43,34,.07);border-left:3px solid var(--crimson)}
+  .ana-item .obs{font-weight:600}
+  .ana-item .why{color:var(--muted);margin-top:3px}
+  .ana-item .lit{font-size:.8rem;color:var(--water2);margin-top:5px;font-style:italic}
+  .ana-cons{margin-top:14px;padding:12px 15px;border-radius:12px;background:rgba(199,146,54,.12);
+    border:1px solid var(--brass);font-size:.92rem}
+  .ana-cons b{font-family:"Fraunces"}
+  .ana-disclaim{font-size:.8rem;color:var(--muted);font-style:italic;margin-top:14px;padding-top:10px;border-top:1px solid var(--line)}
+  .refs{margin-top:12px;font-size:.78rem;color:var(--muted);line-height:1.5}
+  .refs b{font-family:"Fraunces";color:var(--ink);font-style:normal}
+
   /* ============ RACE CARDS ============ */
   .races{display:grid;gap:16px}
   .race{background:var(--card);border-radius:18px;box-shadow:var(--shadow);
@@ -355,19 +404,20 @@
   </section>
 
   <!-- DAY TOGGLE + REFRESH -->
-  <div class="daybar">
+  <div class="daybar" id="daybar">
     <div class="seg" id="seg">
       <button data-day="sat" class="on">Saturday<small>30 May</small></button>
       <button data-day="sun">Sunday<small>31 May</small></button>
     </div>
-    <button class="refresh" id="refreshBtn" title="Re-check live results"><span class="ri">⟳</span><span>Refresh</span></button>
+    <button class="refresh" id="refreshBtn" title="Re-build results from the pasted tables"><span class="ri">⟳</span><span>Refresh</span></button>
   </div>
 
-  <!-- DRAW / RESULTS VIEW TOGGLE -->
+  <!-- VIEW TOGGLE -->
   <div class="viewbar">
     <div class="vseg" id="vseg">
       <button data-view="draw" class="on">Draw</button>
       <button data-view="results">Results</button>
+      <button data-view="coxbox">CoxBox</button>
     </div>
   </div>
 
@@ -385,16 +435,47 @@
     <h2 class="ptitle" style="margin-top:5px"><span class="dot"></span><span id="resTitle">Saturday 30 May</span> — results</h2>
 
     <div class="livebar">
-      <div class="live-status" id="liveStatus">Checking for a live feed…</div>
-      <a class="live-link" id="liveLink" href="https://rowresults.co.uk/metsat26" target="_blank" rel="noopener">Open live results ↗</a>
+      <div class="live-status" id="liveStatus"><span class="led"></span> Open “Update now” to pull live results…</div>
+      <div style="display:flex;gap:8px;align-items:center;margin-left:auto;flex-wrap:wrap">
+        <button class="autobtn" id="autoBtn">Auto-refresh: Off</button>
+        <a class="live-link" id="liveLink" href="https://rowresults.co.uk/metsat26" target="_blank" rel="noopener">Live page ↗</a>
+      </div>
     </div>
     <div class="notebox" id="resultsNote"></div>
 
     <div class="results" id="results" style="margin-top:6px"></div>
   </section>
 
+  <!-- COXBOX RACE BREAKDOWN -->
+  <section class="panel" id="coxboxPanel" style="display:none">
+    <div class="kicker">CoxBox race breakdown · single-boat telemetry</div>
+    <h2 class="ptitle" style="margin-top:5px"><span class="dot"></span>Race analysis from your CoxBox</h2>
+    <div class="notebox" id="coxNote">
+      <b>Paste your CoxBox log</b> (every 100&nbsp;m: distance · elapsed time · split · rate), from your screenshot → text. The metrics below — per-500&nbsp;m splits, rate profile, and metres-per-stroke — are computed straight from your numbers; nothing is invented. The written analysis is <b>data-driven and grounded in published rowing-pacing research</b>, but it's a heuristic, not a coach. The <b>distance</b> is read from your log (so it works for a 1900&nbsp;m TT or a 2000&nbsp;m final). One thing I <b>can't</b> fully do automatically: read your free-text crew note and weave it into the prose — a static page can't interpret it reliably, so it's shown alongside and I flag where to reconcile data with feel (paste both into chat for a written synthesis).
+    </div>
+    <textarea class="paste" id="coxPaste" style="min-height:120px" placeholder="Paste the CoxBox table, e.g.&#10;| Distance | Time | Split | Rate |&#10;|---|---|---|---|&#10;| 100 | 0:20.8 | 1:44.0 | 41 |&#10;| 200 | 0:41.2 | 1:42.0 | 38 |&#10;| ... | ... | ... | ... |"></textarea>
+    <div class="paste-row">
+      <button class="parsebtn" id="coxBuild">Build breakdown</button>
+      <button class="clearbtn" id="coxClear">Clear</button>
+      <span class="upd" id="coxUpd"></span>
+    </div>
+    <div id="coxSummary"></div>
+    <div id="coxTable"></div>
+    <div class="charts" id="coxCharts" style="display:none">
+      <div class="chartcard"><div class="ct">Split (/500 m) through the race · lower = faster</div><div id="coxSplitChart"></div></div>
+      <div class="chartcard"><div class="ct">Stroke rate (spm) through the race</div><div id="coxRateChart"></div></div>
+      <div class="chartcard"><div class="ct">Boat run — metres per stroke · higher = more run</div><div id="coxRunChart"></div></div>
+      <div class="chartcard"><div class="ct">Your shape vs the elite template (Garland 2005)</div><div id="coxShapeChart"></div></div>
+    </div>
+    <div class="cox-consensus">
+      <label for="coxConsensus" class="conslabel">Boat consensus of the row</label>
+      <textarea id="coxConsensus" placeholder="A few words from the crew — how did it feel? e.g. 'Start felt rushed, settled well, third 500 went heavy, good push in the last 250.'"></textarea>
+    </div>
+    <div id="coxAnalysis"></div>
+  </section>
+
   <!-- WEATHER EXPLORER -->
-  <section class="panel">
+  <section class="panel dayscoped">
     <div class="kicker">Conditions · slide through the day</div>
     <div class="wx-top">
       <div class="wx-read">
@@ -419,7 +500,7 @@
   </section>
 
   <!-- FOUR-DAY ARC -->
-  <section class="panel">
+  <section class="panel dayscoped">
     <div class="kicker">The four-day arc · Maidenhead / Dorney</div>
     <h2 class="ptitle" style="margin-top:5px"><span class="dot"></span>A heat spell breaking down</h2>
     <p class="lede">A Bank-Holiday hot spell cooling through the weekend. Saturday is the better racing day — warm, dry, building SW breeze. Sunday turns cooler and showery.</p>
@@ -698,41 +779,62 @@ function renderArc(){
     </div>`).join("");
 }
 
-/* ---------------- RESULTS SYSTEM (paste-driven) ---------------- */
+/* ============ RESULTS (live feed + paste fallback) ============ */
 let view="draw";
+let autoRefresh=false, autoTimer=null;
+const FEEDCODE={sat:"metsat26", sun:"metsun26"};
 const LIVE={sat:"https://rowresults.co.uk/metsat26", sun:"https://rowresults.co.uk/metsun26"};
-const DUBC_BIB={sat:["159","159","284","284"], sun:["136","136","236","236"]}; // [fourTT, fourFinal, eightTT, eightFinal]
+const SLOTS={
+  sat:[
+    {label:"Coxed Four · Academic", boat:"four", ev:"Op 4+ Ac", round:"tt", dist:1900},
+    {label:"Coxed Four · Academic", boat:"four", ev:"Op 4+ Ac", round:"final", dist:2000},
+    {label:"Champ. Eight · Champion Cup", boat:"eight", ev:"Op 8+ Ch", round:"tt", dist:1900},
+    {label:"Champ. Eight · Champion Cup", boat:"eight", ev:"Op 8+ Ch", round:"final", dist:2000}
+  ],
+  sun:[
+    {label:"Coxed Four · Academic", boat:"four", ev:"Op 4+ Ac", round:"tt", dist:1900},
+    {label:"Coxed Four · Academic", boat:"four", ev:"Op 4+ Ac", round:"final", dist:2000},
+    {label:"Champ. Eight · Peter Coni Cup", boat:"eight", ev:"Op 8+ Ch", round:"tt", dist:1900},
+    {label:"Champ. Eight · Peter Coni Cup", boat:"eight", ev:"Op 8+ Ch", round:"final", dist:2000}
+  ]
+};
+const resState={sat:[], sun:[]};
+function initResults(){
+  ["sat","sun"].forEach(d=>SLOTS[d].forEach(()=>resState[d].push(
+    {raceNo:null, round:null, time:null, rows:[], resultStatus:"", status:"idle", updated:null, paste:false})));
+}
+
+/* ---- helpers ---- */
 function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
 function parseTime(str){
   if(str==null)return null; str=String(str).trim(); if(!str)return null;
   let m=str.match(/^(\d+):(\d{1,2}(?:\.\d+)?)$/);
   if(m){const s=parseFloat(m[2]); if(s>=60)return null; return parseInt(m[1])*60+s;}
-  if(/^\d{2,3}(\.\d+)?$/.test(str)){return parseFloat(str);} // bare seconds (e.g. 372.4)
+  if(/^\d{2,3}(\.\d+)?$/.test(str))return parseFloat(str);
   return null;
 }
 function fmt(sec){if(sec==null||isNaN(sec))return "—";const m=Math.floor(sec/60);const s=sec-m*60;return m+":"+(s<10?"0":"")+s.toFixed(1);}
-function raceDist(r){return r.crews?1900:2000;} // time trials 1900 m, finals 2000 m (per Adam)
-
-/* state */
-const resState={sat:[],sun:[]};
-function initResults(){
-  ["sat","sun"].forEach(d=>{ RACES[d].forEach(r=>resState[d].push({raw:"",rows:[],updated:null,final:!r.crews})); });
-}
-function isDUBC(o,bib){
+function isDUBC(o){
   if((o.crew||"").trim().toUpperCase()==="ZADU")return true;
-  const club=(o.club||"").toLowerCase();
-  if(club.includes("dublin university")&&!club.includes("ladies"))return true;
-  if(bib&&(o.num||"").trim()===bib)return true;
-  return false;
+  const c=(o.club||"").toLowerCase();
+  return c.includes("dublin university")&&!c.includes("ladies");
 }
-function cells(line){
-  return line.split("|").map(c=>c.trim()).filter((c,i,a)=>!(c===""&&(i===0||i===a.length-1)));
+function dispName(o){ if(o.club)return o.club; let n=o.crew||o.num||"—"; if(o.lane)n+=" · L"+o.lane; return n; }
+function rowsFromJSON(obj){
+  const L=(obj&&obj.lanes)||[];
+  return L.map((x,idx)=>({
+    num:String(x.CrewNum==null?"":x.CrewNum), crew:x.CrewCode||"", club:x.ClubName||"",
+    lane:"", rawTime:x.Finish||"", timeSec:parseTime(x.Finish),
+    posn:(x.Posn===0||x.Posn)?String(x.Posn):"",
+    splits:[parseTime(x.Split1),parseTime(x.Split2),parseTime(x.Split3)]
+  }));
 }
-function parseTable(text){
+function cells(line){return line.split("|").map(c=>c.trim()).filter((c,i,a)=>!(c===""&&(i===0||i===a.length-1)));}
+function parseMarkdown(text){
   const lines=text.split(/\r?\n/).map(l=>l.trim()).filter(l=>l.includes("|"));
   if(!lines.length)return [];
   let hi=lines.findIndex(l=>/num/i.test(l)&&/crew/i.test(l));
-  let header, data;
+  let header,data;
   if(hi>=0){header=cells(lines[hi]).map(c=>c.toLowerCase());data=lines.slice(hi+1);}
   else{header=["posn","num","crew","club","time"];data=lines;}
   const idx=n=>header.findIndex(h=>h.includes(n));
@@ -744,119 +846,20 @@ function parseTable(text){
     const g=k=>(k>=0&&k<c.length)?c[k]:"";
     const o={posn:g(iP),num:g(iN),crew:g(iC),club:g(iCl),lane:g(iL),rawTime:g(iT)};
     if(!o.num&&!o.crew&&!o.club)continue;
-    o.timeSec=parseTime(o.rawTime);
+    o.timeSec=parseTime(o.rawTime); o.splits=[null,null,null];
     out.push(o);
   }
   return out;
 }
-function dispName(o){
-  if(o.club)return o.club;
-  let n=o.crew||o.num||"—";
-  if(o.lane)n+=" · L"+o.lane;
-  return n;
+function roundMatches(round,slot){
+  round=(round||"").toLowerCase();
+  return slot.round==="final" ? round.includes("final") : (round.includes("time trial")||round.includes("tt"));
 }
-
-function renderResults(){
-  document.getElementById("resTitle").textContent = day==="sat"?"Saturday 30 May":"Sunday 31 May";
-  document.getElementById("liveLink").href = LIVE[day];
-  document.getElementById("resultsNote").innerHTML =
-    `<b>Paste-in results.</b> Grab the rowTIME table (your screenshot → text), paste it into a race below, and it builds the 1st→last table, your placing, and the time &amp; split graphs — your boat highlighted. Nothing is auto-filled or invented. <b>Distances:</b> time trials <b>1900&nbsp;m</b>, finals <b>2000&nbsp;m</b> (your figures — the public Met spec only lists a 2000&nbsp;m course, so the 1900&nbsp;m TT is taken from you). The <b>500&nbsp;m split</b> shown is <b>average pace</b> (time ÷ distance × 500); the timing service doesn't publish real intermediate splits, so I don't fabricate them.${day==="sun"?' The Sunday link <i>metsun26</i> is a guessed URL pattern — verify it.':''}`;
-  const wrap=document.getElementById("results"); wrap.innerHTML="";
-  RACES[day].forEach((r,i)=>{
-    const st=resState[day][i];
-    const dist=raceDist(r);
-    const mod=document.createElement("div");
-    mod.className=`rmod ${r.cls}`;
-    const finalHint = st.final
-      ? `<div class="finalhint">Final: paste the <b>lineup</b> (Posn · Num · Crew · Lane · Time) before the race to see lanes, then re-paste <b>with times</b> after.</div>` : "";
-    mod.innerHTML=`
-      <div class="stripe"></div>
-      <div class="rmod-in">
-        <div class="rmod-head">
-          <div><div class="t">${r.time} · ${r.ev}</div><div class="s">${r.race} · ${st.final?'final · 2000 m':r.entries+' entries · 1900 m'}</div></div>
-          <span class="distbadge">${dist} m</span>
-        </div>
-        ${finalHint}
-        <textarea class="paste" id="pa-${day}-${i}" placeholder="Paste the rowTIME table here, e.g.&#10;| Posn | Num | Crew | Club | Time |&#10;|---|---|---|---|---|&#10;|  | 159 | ZADU | Dublin University (IRL) | 6:18.4 |">${esc(st.raw)}</textarea>
-        <div class="paste-row">
-          <button class="parsebtn" data-i="${i}">Build / update table</button>
-          <button class="clearbtn" data-i="${i}">Clear</button>
-          <span class="upd" id="up-${day}-${i}"></span>
-        </div>
-        <div class="place-call" id="pc-${day}-${i}"></div>
-        <div id="tbl-${day}-${i}"></div>
-        <div class="charts">
-          <div class="chartcard"><div class="ct">Finish times — fastest first</div><div id="fc-${day}-${i}"></div></div>
-          <div class="chartcard"><div class="ct">Average 500 m pace (${dist} m ÷ ${(dist/500)})</div><div id="sc-${day}-${i}"></div></div>
-        </div>
-      </div>`;
-    wrap.appendChild(mod);
-    mod.querySelector(".parsebtn").addEventListener("click",()=>{
-      st.raw=document.getElementById(`pa-${day}-${i}`).value;
-      st.rows=parseTable(st.raw);
-      st.rows.forEach(rw=>rw.us=isDUBC(rw,DUBC_BIB[day][i]));
-      st.updated=new Date();
-      updateOutputs(day,i,dist);
-    });
-    mod.querySelector(".clearbtn").addEventListener("click",()=>{
-      st.raw="";st.rows=[];st.updated=null;
-      document.getElementById(`pa-${day}-${i}`).value="";
-      updateOutputs(day,i,dist);
-    });
-    updateOutputs(day,i,dist);
-  });
-}
-
 function rankRows(rows){
   const timed=rows.filter(r=>r.timeSec!=null).sort((a,b)=>a.timeSec-b.timeSec);
   const untimed=rows.filter(r=>r.timeSec==null);
-  // keep lineup order for untimed: by lane if numeric, else input order
-  untimed.sort((a,b)=>{const la=parseInt(a.lane),lb=parseInt(b.lane);if(!isNaN(la)&&!isNaN(lb))return la-lb;return 0;});
+  untimed.sort((a,b)=>{const la=parseInt(a.lane),lb=parseInt(b.lane);return (!isNaN(la)&&!isNaN(lb))?la-lb:0;});
   return {timed,untimed,best:timed.length?timed[0].timeSec:null};
-}
-function updateOutputs(d,i,dist){
-  const st=resState[d][i];
-  const {timed,untimed,best}=rankRows(st.rows);
-  const up=document.getElementById(`up-${d}-${i}`);
-  if(up)up.textContent=st.updated?("updated "+st.updated.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})):"";
-  // TABLE
-  const tbl=document.getElementById(`tbl-${d}-${i}`);
-  if(tbl){
-    if(!st.rows.length){ tbl.innerHTML=`<div class="empty" style="padding:12px 2px">Paste a table above and press <b>Build</b>.</div>`; }
-    else{
-      const hasClub=st.rows.some(r=>r.club), hasLane=st.rows.some(r=>r.lane);
-      const col4 = hasClub?"Club":(hasLane?"Lane":"");
-      const head=`<tr><th>Pos</th><th>Num</th><th>Crew</th>${col4?`<th>${col4}</th>`:""}<th>Time</th><th>500 m</th></tr>`;
-      const rowHTML=(r,pos)=>{
-        const split=r.timeSec!=null?fmt(r.timeSec*500/dist):"—";
-        const t=r.timeSec!=null?fmt(r.timeSec):(r.rawTime&&!/unreleased|^$/i.test(r.rawTime)?esc(r.rawTime):"—");
-        const c4=hasClub?`<td>${esc(r.club||"")}</td>`:(hasLane?`<td>${esc(r.lane||"")}</td>`:"");
-        const medal=pos&&pos<=3?`medal${pos}`:"";
-        return `<tr class="${r.us?'us':''}"><td class="pl ${medal}">${pos||"·"}</td><td>${esc(r.num)}</td><td>${esc(r.crew)}</td>${c4}<td class="tm">${t}</td><td class="tm">${split}</td></tr>`;
-      };
-      let body="";timed.forEach((r,ix)=>body+=rowHTML(r,ix+1));untimed.forEach(r=>body+=rowHTML(r,null));
-      tbl.innerHTML=`<div class="restable"><table>${head}${body}</table></div>`;
-    }
-  }
-  // PLACE CALL
-  const pc=document.getElementById(`pc-${d}-${i}`);
-  if(pc){
-    const us=st.rows.find(r=>r.us);
-    if(!st.rows.length)pc.innerHTML="";
-    else if(!us)pc.innerHTML=`<span style="color:var(--muted)">Couldn't spot DUBC in this table — check the paste, or tell me how your crew is labelled.</span>`;
-    else if(us.timeSec==null){
-      const lane=us.lane?` · lane ${esc(us.lane)}`:"";
-      pc.innerHTML=`Found your boat (${esc(us.crew||us.num)}${lane}). Awaiting a time.`;
-    } else {
-      const place=timed.findIndex(r=>r===us)+1, n=timed.length;
-      const split=fmt(us.timeSec*500/dist);
-      const off=place===1?"":` · ${(us.timeSec-best).toFixed(1)}s off the lead`;
-      pc.innerHTML=`<span class="big">${place}${ord(place)}</span> of ${n} — <b>${fmt(us.timeSec)}</b> · ${split}/500m${off}`;
-    }
-  }
-  // GRAPHS
-  barChart(document.getElementById(`fc-${d}-${i}`), timed.map(r=>({name:dispName(r),us:r.us,val:r.timeSec})), v=>fmt(v), best, "Paste a result with times to compare the field.");
-  barChart(document.getElementById(`sc-${d}-${i}`), timed.map(r=>({name:dispName(r),us:r.us,val:r.timeSec*500/dist})), v=>fmt(v)+"/500", timed.length?best*500/dist:null, "Splits appear once times are entered.");
 }
 function barChart(el,items,labelFn,bestVal,emptyMsg){
   if(!el)return;
@@ -877,18 +880,165 @@ function barChart(el,items,labelFn,bestVal,emptyMsg){
   }).join("");
 }
 
+/* ---- live fetch ---- */
+async function getJSON(url){ const r=await fetch(url,{cache:"no-store"}); if(!r.ok)throw new Error("HTTP "+r.status); return r.json(); }
+function setLiveStatus(state,extra){
+  const el=document.getElementById("liveStatus"); if(!el)return;
+  el.className="live-status"+(state==="blocked"?" err":"");
+  const t=new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"});
+  if(state==="checking")el.innerHTML=`<span class="led"></span> Checking rowresults…`;
+  else if(state==="ok")el.innerHTML=`<span class="led"></span> Live — pulled from rowresults <span class="ts">at ${t}</span>`;
+  else if(state==="blocked")el.innerHTML=`<span class="led"></span> Couldn’t reach rowresults from the browser${extra?" ("+extra+")":""} — paste below, or rely on the phone alerts. <span class="ts">tried ${t}</span>`;
+}
+async function updateLive(day){
+  setLiveStatus("checking");
+  const code=FEEDCODE[day];
+  let info;
+  try{ info=await getJSON(`https://rowresults.co.uk/raceinfo.php?c=${code}`); }
+  catch(e){ setLiveStatus("blocked","cross-site block"); return; }
+  setLiveStatus("ok");
+  for(let i=0;i<SLOTS[day].length;i++){
+    const slot=SLOTS[day][i], st=resState[day][i];
+    if(st.paste) continue;
+    const row=(info.data||[]).find(r=> r.Event===slot.ev && roundMatches(r.Round,slot) && (r.SearchInfo||"").includes("ZADU"));
+    if(!row){ st.status="notdrawn"; st.rows=[]; st.raceNo=null; updateSlotOutputs(day,i); continue; }
+    st.raceNo=row.Race; st.round=row.Round; st.time=row.Time;
+    try{
+      const det=await getJSON(`https://rowresults.co.uk/results/${code}/Race${row.Race}.json`);
+      st.rows=rowsFromJSON(det); st.rows.forEach(r=>r.us=isDUBC(r));
+      st.resultStatus=(det&&det.race)?det.race.ResultStatus:"";
+      st.status="live"; st.updated=new Date();
+    }catch(e){ st.status="error"; }
+    updateSlotOutputs(day,i);
+  }
+}
+
+/* ---- render ---- */
+function renderResults(){
+  document.getElementById("resTitle").textContent = day==="sat"?"Saturday 30 May":"Sunday 31 May";
+  document.getElementById("liveLink").href = LIVE[day];
+  document.getElementById("resultsNote").innerHTML =
+    `<b>Live results.</b> Press <b>Update now</b> (top) to pull straight from rowresults, or turn on Auto-refresh. It finds your boats by club code <b>ZADU</b>, ranks the field 1st→last, marks your crew, and draws the time &amp; split graphs — nothing is invented. <b>Distances:</b> time trials <b>1900&nbsp;m</b>, finals <b>2000&nbsp;m</b> (your figures); the <b>500&nbsp;m split</b> is average pace (time ÷ distance × 500). If the browser can’t reach rowresults (a cross-site block — likely), each race has a paste box: open the <i>Live page</i> link, open a race’s data, and paste it (the raw <b>{…}</b> JSON or a results table). The phone alerts don’t depend on any of this.`;
+  const wrap=document.getElementById("results"); wrap.innerHTML="";
+  SLOTS[day].forEach((slot,i)=>{
+    const mod=document.createElement("div");
+    mod.className=`rmod ${slot.boat}`;
+    mod.innerHTML=`
+      <div class="stripe"></div>
+      <div class="rmod-in">
+        <div class="rmod-head">
+          <div><div class="t"><span id="htime-${day}-${i}">—</span> · ${slot.label}</div>
+            <div class="s"><span id="hround-${day}-${i}">${slot.round==="final"?"Final":"Time Trial"}</span> · ${slot.dist} m</div></div>
+          <span class="distbadge">${slot.dist} m</span>
+        </div>
+        <div class="slot-status" id="hstat-${day}-${i}"><span class="led"></span> idle</div>
+        <div class="place-call" id="pc-${day}-${i}"></div>
+        <div id="tbl-${day}-${i}"></div>
+        <div class="charts">
+          <div class="chartcard"><div class="ct">Finish times — fastest first</div><div id="fc-${day}-${i}"></div></div>
+          <div class="chartcard"><div class="ct">Average 500 m pace (${slot.dist} m ÷ ${(slot.dist/500)})</div><div id="sc-${day}-${i}"></div></div>
+        </div>
+        <details class="fallback">
+          <summary>Can’t fetch live? Paste this race instead</summary>
+          <div class="hint">Open the <b>Live page</b>, click this race to expand it / open its data, and paste the raw <b>{…}</b> JSON (best) or a results table here.</div>
+          <textarea class="paste" id="pa-${day}-${i}" placeholder='Paste the race JSON, e.g. {"race":{...},"lanes":[...]}  — or a | Posn | Num | Crew | Club | Time | table'></textarea>
+          <div class="paste-row">
+            <button class="parsebtn" data-i="${i}">Build from paste</button>
+            <button class="backlive" data-i="${i}">↩ back to live</button>
+          </div>
+        </details>
+      </div>`;
+    wrap.appendChild(mod);
+    mod.querySelector(".parsebtn").addEventListener("click",()=>{
+      const txt=(document.getElementById(`pa-${day}-${i}`).value||"").trim();
+      const st=resState[day][i]; let rows=[];
+      if(txt.startsWith("{")){ try{ rows=rowsFromJSON(JSON.parse(txt)); }catch(e){ alert("That isn’t valid JSON. Paste the whole {…} block from the feed, or a results table."); return; } }
+      else { rows=parseMarkdown(txt); }
+      rows.forEach(r=>r.us=isDUBC(r));
+      st.rows=rows; st.paste=true; st.status="paste"; st.updated=new Date();
+      updateSlotOutputs(day,i);
+    });
+    mod.querySelector(".backlive").addEventListener("click",()=>{
+      const st=resState[day][i]; st.paste=false; st.rows=[]; st.status="idle";
+      document.getElementById(`pa-${day}-${i}`).value="";
+      updateSlotOutputs(day,i); updateLive(day);
+    });
+    updateSlotOutputs(day,i);
+  });
+}
+function updateSlotOutputs(day,i){
+  const slot=SLOTS[day][i], st=resState[day][i], dist=slot.dist;
+  const ht=document.getElementById(`htime-${day}-${i}`); if(ht)ht.textContent=st.time||"—";
+  const hr=document.getElementById(`hround-${day}-${i}`); if(hr&&st.round)hr.textContent=st.round;
+  // status chip
+  const hs=document.getElementById(`hstat-${day}-${i}`);
+  if(hs){
+    const t=st.updated?` <span class="ts">· ${st.updated.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</span>`:"";
+    let cls="",txt="";
+    const anyTime=st.rows.some(r=>r.timeSec!=null);
+    if(st.status==="paste"){cls="paste";txt="from paste";}
+    else if(st.status==="notdrawn"){cls="wait";txt="not yet drawn";}
+    else if(st.status==="error"){cls="blocked";txt="couldn’t load this race";}
+    else if(st.status==="live"&&anyTime){cls="live";txt=st.resultStatus||"result in";}
+    else if(st.status==="live"){cls="wait";txt="drawn — awaiting times";}
+    else {cls="";txt="idle";}
+    hs.className="slot-status "+cls;
+    hs.innerHTML=`<span class="led"></span> ${esc(txt)}${t}`;
+  }
+  const {timed,untimed,best}=rankRows(st.rows);
+  // table
+  const tbl=document.getElementById(`tbl-${day}-${i}`);
+  if(tbl){
+    if(!st.rows.length){ tbl.innerHTML=`<div class="empty" style="padding:10px 2px">No data yet — press Update now, or paste below.</div>`; }
+    else{
+      const hasClub=st.rows.some(r=>r.club), hasLane=st.rows.some(r=>r.lane);
+      const col4=hasClub?"Club":(hasLane?"Lane":"");
+      const head=`<tr><th>Pos</th><th>Num</th><th>Crew</th>${col4?`<th>${col4}</th>`:""}<th>Time</th><th>500 m</th></tr>`;
+      const rowHTML=(r,pos)=>{
+        const split=r.timeSec!=null?fmt(r.timeSec*500/dist):"—";
+        const t=r.timeSec!=null?fmt(r.timeSec):(r.rawTime&&!/unreleased|^$/i.test(r.rawTime)?esc(r.rawTime):"—");
+        const c4=hasClub?`<td>${esc(r.club||"")}</td>`:(hasLane?`<td>${esc(r.lane||"")}</td>`:"");
+        const medal=pos&&pos<=3?`medal${pos}`:"";
+        return `<tr class="${r.us?'us':''}"><td class="pl ${medal}">${pos||"·"}</td><td>${esc(r.num)}</td><td>${esc(r.crew)}</td>${c4}<td class="tm">${t}</td><td class="tm">${split}</td></tr>`;
+      };
+      let body="";timed.forEach((r,ix)=>body+=rowHTML(r,ix+1));untimed.forEach(r=>body+=rowHTML(r,null));
+      tbl.innerHTML=`<div class="restable"><table>${head}${body}</table></div>`;
+    }
+  }
+  // place call
+  const pc=document.getElementById(`pc-${day}-${i}`);
+  if(pc){
+    const us=st.rows.find(r=>r.us);
+    if(!st.rows.length)pc.innerHTML="";
+    else if(!us)pc.innerHTML=`<span style="color:var(--muted)">DUBC isn’t in this race’s data.</span>`;
+    else if(us.timeSec==null){const lane=us.lane?` · lane ${esc(us.lane)}`:"";pc.innerHTML=`Found your boat (${esc(us.crew||us.num)}${lane}). Awaiting a time.`;}
+    else{const place=timed.findIndex(r=>r===us)+1,n=timed.length,split=fmt(us.timeSec*500/dist);
+      const off=place===1?"":` · ${(us.timeSec-best).toFixed(1)}s off the lead`;
+      pc.innerHTML=`<span class="big">${place}${ord(place)}</span> of ${n} — <b>${fmt(us.timeSec)}</b> · ${split}/500m${off}`;}
+  }
+  // charts
+  barChart(document.getElementById(`fc-${day}-${i}`), timed.map(r=>({name:dispName(r),us:r.us,val:r.timeSec})), v=>fmt(v), best, "Times appear here once they’re posted.");
+  barChart(document.getElementById(`sc-${day}-${i}`), timed.map(r=>({name:dispName(r),us:r.us,val:r.timeSec*500/dist})), v=>fmt(v)+"/500", timed.length?best*500/dist:null, "Splits appear once times are posted.");
+}
+
 /* ---------------- VIEW / REFRESH ---------------- */
 function setView(v){
   view=v;
   document.getElementById("drawPanel").style.display = v==="draw"?"":"none";
   document.getElementById("resultsPanel").style.display = v==="results"?"":"none";
+  document.getElementById("coxboxPanel").style.display = v==="coxbox"?"":"none";
+  const cox = v==="coxbox";
+  document.getElementById("daybar").style.display = cox?"none":"";
+  document.querySelectorAll(".dayscoped").forEach(el=>el.style.display = cox?"none":"");
   document.querySelectorAll("#vseg button").forEach(b=>b.classList.toggle("on",b.dataset.view===v));
+  if(v==="results") updateLive(day);
 }
 document.querySelectorAll("#vseg button").forEach(b=>b.addEventListener("click",()=>setView(b.dataset.view)));
 document.querySelectorAll("#seg button").forEach(b=>b.addEventListener("click",()=>{
   document.querySelectorAll("#seg button").forEach(x=>x.classList.remove("on"));
   b.classList.add("on");day=b.dataset.day; hourIdx=day==="sat"?8:7;
   renderRaces();updateReadout();renderChart();renderChips();renderResults();
+  if(view==="results") updateLive(day);
 }));
 document.querySelectorAll("#metricTabs button").forEach(b=>b.addEventListener("click",()=>{
   document.querySelectorAll("#metricTabs button").forEach(x=>x.classList.remove("on"));
@@ -896,15 +1046,14 @@ document.querySelectorAll("#metricTabs button").forEach(b=>b.addEventListener("c
 }));
 document.getElementById("refreshBtn").addEventListener("click",function(){
   this.classList.add("spin");setTimeout(()=>this.classList.remove("spin"),650);
-  if(view!=="results")setView("results");
-  // re-parse every pasted box for the current day from its textarea
-  RACES[day].forEach((r,i)=>{
-    const ta=document.getElementById(`pa-${day}-${i}`); if(!ta)return;
-    const st=resState[day][i]; st.raw=ta.value; st.rows=parseTable(st.raw);
-    st.rows.forEach(rw=>rw.us=isDUBC(rw,DUBC_BIB[day][i]));
-    st.updated=new Date();
-    updateOutputs(day,i,raceDist(r));
-  });
+  if(view!=="results")setView("results"); else updateLive(day);
+});
+document.getElementById("autoBtn").addEventListener("click",function(){
+  autoRefresh=!autoRefresh;
+  this.classList.toggle("on",autoRefresh);
+  this.textContent="Auto-refresh: "+(autoRefresh?"On (60s)":"Off");
+  if(autoTimer){clearInterval(autoTimer);autoTimer=null;}
+  if(autoRefresh){ updateLive(day); autoTimer=setInterval(()=>{ if(view==="results") updateLive(day); }, 60000); }
 });
 
 initResults();

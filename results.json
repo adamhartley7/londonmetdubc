@@ -1,0 +1,831 @@
+{
+  "updated": "2026-05-31T09:59:01.011Z",
+  "sat": [
+    {
+      "boat": "four",
+      "roundType": "tt",
+      "dist": 1900,
+      "event": "Op 4+ Championship",
+      "round": "Time Trial",
+      "time": "09:23",
+      "raceNo": 7,
+      "resultStatus": "Unconfirmed Result",
+      "lanes": [
+        {
+          "CrewNum": 113,
+          "CrewCode": "TRC",
+          "ClubName": "Thames",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 114,
+          "CrewCode": "MBC",
+          "ClubName": "Molesey BC",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 115,
+          "CrewCode": "EHU",
+          "ClubName": "Edinburgh Univ BC",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 116,
+          "CrewCode": "ULO",
+          "ClubName": "Univ of London",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 117,
+          "CrewCode": "RAD",
+          "ClubName": "Radley Coll",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 118,
+          "CrewCode": "MAR",
+          "ClubName": "Marlow RC",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 119,
+          "CrewCode": "ZANU",
+          "ClubName": "Univ of Galway (IRL)",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 120,
+          "CrewCode": "OUB",
+          "ClubName": "Oxford Univ BC",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 121,
+          "CrewCode": "ABU/ DUB/ MBC/ OUN/ OXB",
+          "ClubName": "XXXX/ Durham Univ/ Molesey BC/ Oundle Sch/ Oxford Brookes Univ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 122,
+          "CrewCode": "CUB",
+          "ClubName": "Cambridge Univ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 123,
+          "CrewCode": "YRK",
+          "ClubName": "York City",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 124,
+          "CrewCode": "ZUCD",
+          "ClubName": "UCD Boat Club (IRL)",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 125,
+          "CrewCode": "ZUCD",
+          "ClubName": "UCD Boat Club (IRL)",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        }
+      ]
+    },
+    {
+      "boat": "eight",
+      "roundType": "final",
+      "dist": 2000,
+      "event": "Open [Coxed] [Fours]",
+      "round": "Final E",
+      "time": "12:37",
+      "raceNo": 36,
+      "resultStatus": "Official Result",
+      "lanes": [
+        {
+          "CrewNum": 140,
+          "CrewCode": "UTC",
+          "ClubName": "Upper Thames RC ",
+          "Finish": "06:52.74",
+          "Posn": 1,
+          "Split1": "07:14.7",
+          "Split2": "03:24.7",
+          "Split3": "05:10.5"
+        },
+        {
+          "CrewNum": 138,
+          "CrewCode": "MIN",
+          "ClubName": "Minerva Bath ",
+          "Finish": "06:53.21",
+          "Posn": 2,
+          "Split1": "07:16.1",
+          "Split2": "03:26.8",
+          "Split3": "05:13.6"
+        },
+        {
+          "CrewNum": 145,
+          "CrewCode": "ZANY",
+          "ClubName": "Shannon RC (IRL) (B) ",
+          "Finish": "06:55.60",
+          "Posn": 3,
+          "Split1": "07:17.6",
+          "Split2": "03:26.6",
+          "Split3": "05:11.9"
+        },
+        {
+          "CrewNum": 159,
+          "CrewCode": "ZADU",
+          "ClubName": "Dublin University (IRL) ",
+          "Finish": "06:59.00",
+          "Posn": 4,
+          "Split1": "07:16.6",
+          "Split2": "03:27.8",
+          "Split3": "05:14.0"
+        },
+        {
+          "CrewNum": 153,
+          "CrewCode": "UYO",
+          "ClubName": "Univ of York (A) ",
+          "Finish": "07:02.76",
+          "Posn": 5,
+          "Split1": "07:19.4",
+          "Split2": "03:32.2",
+          "Split3": "05:19.5"
+        },
+        {
+          "CrewNum": 123,
+          "CrewCode": "YRK",
+          "ClubName": "York City ",
+          "Finish": "07:03.09",
+          "Posn": 6,
+          "Split1": "07:19.1",
+          "Split2": "03:31.7",
+          "Split3": "05:18.6"
+        },
+        {
+          "CrewNum": 155,
+          "CrewCode": "DUL",
+          "ClubName": "Dulwich Coll ",
+          "Finish": "07:04.37",
+          "Posn": 7,
+          "Split1": "07:19.9",
+          "Split2": "03:32.6",
+          "Split3": "05:19.2"
+        },
+        {
+          "CrewNum": 136,
+          "CrewCode": "HIN",
+          "ClubName": "Hinksey Sculling Sch ",
+          "Finish": "07:05.68",
+          "Posn": 8,
+          "Split1": "07:17.2",
+          "Split2": "03:29.4",
+          "Split3": "05:19.0"
+        }
+      ]
+    },
+    {
+      "boat": "eight",
+      "roundType": "tt",
+      "dist": 1900,
+      "event": "Op 8+ Championship",
+      "round": "Time Trial",
+      "time": "14:15",
+      "raceNo": 51,
+      "resultStatus": "Unconfirmed Result",
+      "lanes": [
+        {
+          "CrewNum": 265,
+          "CrewCode": "LRC",
+          "ClubName": "London RC",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 266,
+          "CrewCode": "SPS",
+          "ClubName": "St Paul's Sch",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 267,
+          "CrewCode": "OXB",
+          "ClubName": "Oxford Brookes Univ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 268,
+          "CrewCode": "ULO",
+          "ClubName": "Univ of London",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 269,
+          "CrewCode": "DUB",
+          "ClubName": "Durham Univ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 270,
+          "CrewCode": "LDR",
+          "ClubName": "Leander",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 271,
+          "CrewCode": "MAR",
+          "ClubName": "Marlow RC",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 272,
+          "CrewCode": "OXB",
+          "ClubName": "Oxford Brookes Univ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 273,
+          "CrewCode": "TRC",
+          "ClubName": "Thames",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 274,
+          "CrewCode": "LDR",
+          "ClubName": "Leander",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 275,
+          "CrewCode": "EHU",
+          "ClubName": "Edinburgh Univ BC",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 276,
+          "CrewCode": "OXB",
+          "ClubName": "Oxford Brookes Univ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 277,
+          "CrewCode": "OXB",
+          "ClubName": "Oxford Brookes Univ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 278,
+          "CrewCode": "CUB",
+          "ClubName": "Cambridge Univ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 279,
+          "CrewCode": "OXB",
+          "ClubName": "Oxford Brookes Univ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 280,
+          "CrewCode": "ZUCD",
+          "ClubName": "UCD Boat Club (IRL)",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 281,
+          "CrewCode": "OXB",
+          "ClubName": "Oxford Brookes Univ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 282,
+          "CrewCode": "ZANU",
+          "ClubName": "Univ of Galway (IRL)",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 283,
+          "CrewCode": "CAB",
+          "ClubName": "Cantabrigian",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 284,
+          "CrewCode": "ZADU",
+          "ClubName": "Dublin University (IRL)",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        }
+      ]
+    },
+    {
+      "boat": "eight",
+      "roundType": "final",
+      "dist": 2000,
+      "event": "Open 8+",
+      "round": "Final H",
+      "time": "17:12",
+      "raceNo": 76,
+      "resultStatus": "Official Result",
+      "lanes": [
+        {
+          "CrewNum": 284,
+          "CrewCode": "ZADU",
+          "ClubName": "Dublin University (IRL) ",
+          "Finish": "06:10.54",
+          "Posn": 1,
+          "Split1": "01:29.9",
+          "Split2": "DNA",
+          "Split3": "04:37.3"
+        },
+        {
+          "CrewNum": 302,
+          "CrewCode": "AGE",
+          "ClubName": "Agecroft ",
+          "Finish": "06:11.71",
+          "Posn": 2,
+          "Split1": "01:31.9",
+          "Split2": "DNA",
+          "Split3": "04:38.6"
+        },
+        {
+          "CrewNum": 297,
+          "CrewCode": "MBC",
+          "ClubName": "Molesey BC (B) ",
+          "Finish": "06:14.75",
+          "Posn": 3,
+          "Split1": "01:36.2",
+          "Split2": "DNA",
+          "Split3": "04:42.5"
+        },
+        {
+          "CrewNum": 312,
+          "CrewCode": "COX",
+          "ClubName": "City of Oxford ",
+          "Finish": "06:14.98",
+          "Posn": 4,
+          "Split1": "01:33.8",
+          "Split2": "DNA",
+          "Split3": "04:42.0"
+        },
+        {
+          "CrewNum": 281,
+          "CrewCode": "OXB",
+          "ClubName": "Oxford Brookes Univ (F) ",
+          "Finish": "06:17.16",
+          "Posn": 5,
+          "Split1": "01:35.0",
+          "Split2": "DNA",
+          "Split3": "04:44.1"
+        },
+        {
+          "CrewNum": 333,
+          "CrewCode": "SOU",
+          "ClubName": "Southampton Univ (A) ",
+          "Finish": "06:17.54",
+          "Posn": 6,
+          "Split1": "01:34.6",
+          "Split2": "DNA",
+          "Split3": "04:43.1"
+        },
+        {
+          "CrewNum": 299,
+          "CrewCode": "PTR",
+          "ClubName": "Putney Town RC ",
+          "Finish": "06:20.46",
+          "Posn": 7,
+          "Split1": "01:34.2",
+          "Split2": "DNA",
+          "Split3": "04:45.1"
+        },
+        {
+          "CrewNum": 301,
+          "CrewCode": "MIN",
+          "ClubName": "Minerva Bath ",
+          "Finish": "DNA",
+          "Posn": "SCR",
+          "Split1": "DNA",
+          "Split2": "DNA",
+          "Split3": "DNA"
+        }
+      ]
+    }
+  ],
+  "sun": [
+    {
+      "boat": "four",
+      "roundType": "tt",
+      "dist": 1900,
+      "event": "Op 4+ Championship",
+      "round": "Time Trial",
+      "time": "09:17",
+      "raceNo": 7,
+      "resultStatus": "Unconfirmed Result",
+      "lanes": [
+        {
+          "CrewNum": 100,
+          "CrewCode": "TRC",
+          "ClubName": "Thames",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 101,
+          "CrewCode": "MBC",
+          "ClubName": "Molesey BC",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 102,
+          "CrewCode": "NEW",
+          "ClubName": "Newcastle Univ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 103,
+          "CrewCode": "EHU",
+          "ClubName": "Edinburgh Univ BC",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 104,
+          "CrewCode": "RCH",
+          "ClubName": "Royal Chester",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 105,
+          "CrewCode": "MAR",
+          "ClubName": "Marlow RC",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 106,
+          "CrewCode": "ZAQU",
+          "ClubName": "Queens Univ Belfast (IRL)",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 107,
+          "CrewCode": "LJM/ MBC/ OUN/ OXB",
+          "ClubName": "Liverpool John Moores Univ/ Molesey BC/ Oundle Sch/ Oxford Brookes Univ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 108,
+          "CrewCode": "ZUCD",
+          "ClubName": "UCD Boat Club (IRL)",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        }
+      ]
+    },
+    {
+      "boat": "four",
+      "roundType": "final",
+      "dist": 2000,
+      "event": "Open 4+",
+      "round": "Final C",
+      "time": "12:07",
+      "raceNo": 31,
+      "resultStatus": "Drawn",
+      "lanes": [
+        {
+          "CrewNum": 127,
+          "CrewCode": "WRR",
+          "ClubName": "Worcester ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 136,
+          "CrewCode": "ZADU",
+          "ClubName": "Dublin University (IRL) ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 124,
+          "CrewCode": "ZANY",
+          "ClubName": "Shannon RC (IRL) (A) ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 125,
+          "CrewCode": "ZANY",
+          "ClubName": "Shannon RC (IRL) (B) ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 139,
+          "CrewCode": "ZALU",
+          "ClubName": "Limerick Univ (IRL) (B) ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 117,
+          "CrewCode": "ZACR",
+          "ClubName": "Commercial RC (IRL) ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 128,
+          "CrewCode": "WAR",
+          "ClubName": "Warwick ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 121,
+          "CrewCode": "STA",
+          "ClubName": "Star ",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        }
+      ]
+    },
+    {
+      "boat": "eight",
+      "roundType": "tt",
+      "dist": 1900,
+      "event": "Op 8+ Championship",
+      "round": "Time Trial",
+      "time": "13:47",
+      "raceNo": 46,
+      "resultStatus": "Drawn",
+      "lanes": [
+        {
+          "CrewNum": 229,
+          "CrewCode": "LRC",
+          "ClubName": "London RC",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 230,
+          "CrewCode": "MAR",
+          "ClubName": "Marlow RC",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 231,
+          "CrewCode": "TRC",
+          "ClubName": "Thames",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 232,
+          "CrewCode": "ZANU",
+          "ClubName": "Univ of Galway (IRL)",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 233,
+          "CrewCode": "ZANU",
+          "ClubName": "Univ of Galway (IRL)",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 234,
+          "CrewCode": "EHU",
+          "ClubName": "Edinburgh Univ BC",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 235,
+          "CrewCode": "ZUCD",
+          "ClubName": "UCD Boat Club (IRL)",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        },
+        {
+          "CrewNum": 236,
+          "CrewCode": "ZADU",
+          "ClubName": "Dublin University (IRL)",
+          "Finish": "",
+          "Posn": "",
+          "Split1": "",
+          "Split2": "",
+          "Split3": ""
+        }
+      ]
+    }
+  ]
+}

@@ -32,7 +32,10 @@ async function notify(msg){ if (process.env.NTFY_URL) await fetch(process.env.NT
       const lanes = det.lanes || [];
       const roundStr  = (det.race && det.race.Round) ? det.race.Round : (r.Round || "");
       const roundType = /final/i.test(roundStr) ? "final" : "tt";
-      const boat = /4\+/.test(r.Event || "") ? "four" : "eight";
+
+      // four-vs-eight: finals are named differently from TTs, so check several forms
+      const evStr = `${r.Event || ""} ${(det.race && det.race.RaceName) || ""}`;
+      const boat  = /8\+|eight|viii/i.test(evStr) ? "eight" : (/4\+|four/i.test(evStr) ? "four" : null);
 
       out[dayKey].push({
         boat, roundType, dist: roundType === "tt" ? 1900 : 2000,
@@ -59,7 +62,6 @@ async function notify(msg){ if (process.env.NTFY_URL) await fetch(process.env.NT
     }
   }
 
-  // write results.json only when the race data actually changed (avoids needless commits)
   const prev = load("results.json");
   const changed = !prev || JSON.stringify({s:prev.sat, u:prev.sun}) !== JSON.stringify({s:out.sat, u:out.sun});
   if (changed) { fs.writeFileSync("results.json", JSON.stringify(out, null, 2)); console.log("results.json updated"); }

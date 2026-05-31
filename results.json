@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-31T10:11:18.880Z",
+  "updated": "2026-05-31T15:02:06.034Z",
   "sat": [
     {
       "boat": "four",
@@ -651,87 +651,87 @@
       "round": "Final C",
       "time": "12:07",
       "raceNo": 31,
-      "resultStatus": "Drawn",
+      "resultStatus": "Official Result",
       "lanes": [
         {
-          "CrewNum": 127,
-          "CrewCode": "WRR",
-          "ClubName": "Worcester ",
-          "Finish": "",
-          "Posn": "",
-          "Split1": "",
-          "Split2": "",
-          "Split3": ""
-        },
-        {
-          "CrewNum": 136,
-          "CrewCode": "ZADU",
-          "ClubName": "Dublin University (IRL) ",
-          "Finish": "",
-          "Posn": "",
-          "Split1": "",
-          "Split2": "",
-          "Split3": ""
-        },
-        {
-          "CrewNum": 124,
-          "CrewCode": "ZANY",
-          "ClubName": "Shannon RC (IRL) (A) ",
-          "Finish": "",
-          "Posn": "",
-          "Split1": "",
-          "Split2": "",
-          "Split3": ""
+          "CrewNum": 139,
+          "CrewCode": "ZALU",
+          "ClubName": "Limerick Univ (IRL) (B) ",
+          "Finish": "06:42.06",
+          "Posn": 1,
+          "Split1": "DNA",
+          "Split2": "DNA",
+          "Split3": "05:03.9"
         },
         {
           "CrewNum": 125,
           "CrewCode": "ZANY",
           "ClubName": "Shannon RC (IRL) (B) ",
-          "Finish": "",
-          "Posn": "",
-          "Split1": "",
-          "Split2": "",
-          "Split3": ""
+          "Finish": "06:42.94",
+          "Posn": 2,
+          "Split1": "DNA",
+          "Split2": "DNA",
+          "Split3": "05:04.7"
         },
         {
-          "CrewNum": 139,
-          "CrewCode": "ZALU",
-          "ClubName": "Limerick Univ (IRL) (B) ",
-          "Finish": "",
-          "Posn": "",
-          "Split1": "",
-          "Split2": "",
-          "Split3": ""
+          "CrewNum": 124,
+          "CrewCode": "ZANY",
+          "ClubName": "Shannon RC (IRL) (A) ",
+          "Finish": "06:45.64",
+          "Posn": 3,
+          "Split1": "DNA",
+          "Split2": "DNA",
+          "Split3": "05:06.0"
+        },
+        {
+          "CrewNum": 136,
+          "CrewCode": "ZADU",
+          "ClubName": "Dublin University (IRL) ",
+          "Finish": "06:51.75",
+          "Posn": 4,
+          "Split1": "DNA",
+          "Split2": "DNA",
+          "Split3": "05:10.4"
         },
         {
           "CrewNum": 117,
           "CrewCode": "ZACR",
           "ClubName": "Commercial RC (IRL) ",
-          "Finish": "",
-          "Posn": "",
-          "Split1": "",
-          "Split2": "",
-          "Split3": ""
+          "Finish": "06:53.50",
+          "Posn": 5,
+          "Split1": "DNA",
+          "Split2": "DNA",
+          "Split3": "05:09.5"
+        },
+        {
+          "CrewNum": 127,
+          "CrewCode": "WRR",
+          "ClubName": "Worcester ",
+          "Finish": "06:55.99",
+          "Posn": 6,
+          "Split1": "DNA",
+          "Split2": "DNA",
+          "Split3": "05:15.0"
         },
         {
           "CrewNum": 128,
           "CrewCode": "WAR",
           "ClubName": "Warwick ",
-          "Finish": "",
-          "Posn": "",
-          "Split1": "",
-          "Split2": "",
-          "Split3": ""
+          "Finish": "06:59.85",
+          "Posn": 7,
+          "Split1": "DNA",
+          "Split2": "DNA",
+          "Split3": "05:12.3"
         },
         {
           "CrewNum": 121,
           "CrewCode": "STA",
           "ClubName": "Star ",
-          "Finish": "",
-          "Posn": "",
-          "Split1": "",
-          "Split2": "",
-          "Split3": ""
+          "Finish": "07:07.32",
+          "Posn": 8,
+          "Split1": "DNA",
+          "Split2": "DNA",
+          "Split3": "05:20.6"
         }
       ]
     },
@@ -743,7 +743,7 @@
       "round": "Time Trial",
       "time": "13:47",
       "raceNo": 46,
-      "resultStatus": "Drawn",
+      "resultStatus": "Unconfirmed Result",
       "lanes": [
         {
           "CrewNum": 229,
@@ -824,6 +824,98 @@
           "Split1": "",
           "Split2": "",
           "Split3": ""
+        }
+      ]
+    },
+    {
+      "boat": "eight",
+      "roundType": "final",
+      "dist": 2000,
+      "event": "Open 8+",
+      "round": "Final D",
+      "time": "15:51",
+      "raceNo": 67,
+      "resultStatus": "Official Result",
+      "lanes": [
+        {
+          "CrewNum": 246,
+          "CrewCode": "MBC",
+          "ClubName": "Molesey BC (A) ",
+          "Finish": "06:02.50",
+          "Posn": 1,
+          "Split1": "01:29.9",
+          "Split2": "03:00.8",
+          "Split3": "04:31.5"
+        },
+        {
+          "CrewNum": 234,
+          "CrewCode": "EHU",
+          "ClubName": "Edinburgh Univ BC ",
+          "Finish": "06:05.80",
+          "Posn": 2,
+          "Split1": "01:31.8",
+          "Split2": "03:03.4",
+          "Split3": "04:35.4"
+        },
+        {
+          "CrewNum": 248,
+          "CrewCode": "ZACR",
+          "ClubName": "Commercial RC (IRL) (B) ",
+          "Finish": "06:08.60",
+          "Posn": 3,
+          "Split1": "01:31.0",
+          "Split2": "03:04.1",
+          "Split3": "04:36.2"
+        },
+        {
+          "CrewNum": 255,
+          "CrewCode": "VRC",
+          "ClubName": "Vesta RC (B) ",
+          "Finish": "06:08.90",
+          "Posn": 4,
+          "Split1": "01:31.5",
+          "Split2": "03:04.6",
+          "Split3": "04:36.5"
+        },
+        {
+          "CrewNum": 275,
+          "CrewCode": "ZAQU",
+          "ClubName": "Queens Univ Belfast (IRL) ",
+          "Finish": "06:09.70",
+          "Posn": 5,
+          "Split1": "01:32.1",
+          "Split2": "03:05.0",
+          "Split3": "04:37.8"
+        },
+        {
+          "CrewNum": 283,
+          "CrewCode": "UCL",
+          "ClubName": "Univ Coll Lon BC ",
+          "Finish": "06:10.90",
+          "Posn": 6,
+          "Split1": "01:30.6",
+          "Split2": "03:02.9",
+          "Split3": "04:35.9"
+        },
+        {
+          "CrewNum": 236,
+          "CrewCode": "ZADU",
+          "ClubName": "Dublin University (IRL) ",
+          "Finish": "06:15.10",
+          "Posn": 7,
+          "Split1": "01:28.9",
+          "Split2": "03:02.6",
+          "Split3": "04:38.2"
+        },
+        {
+          "CrewNum": 279,
+          "CrewCode": "SOU",
+          "ClubName": "Southampton Univ (A) ",
+          "Finish": "06:20.10",
+          "Posn": 8,
+          "Split1": "01:32.3",
+          "Split2": "03:08.2",
+          "Split3": "04:43.6"
         }
       ]
     }

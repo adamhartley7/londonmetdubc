@@ -1,7 +1,6 @@
-// check.js — runs on GitHub Actions. No tokens, no cost beyond free minutes.
+// check.js — GitHub Actions. Sends phone alerts AND writes results.json for the page.
 const DAYS = ["metsat26", "metsun26"];   // Saturday + Sunday feeds
 const OUR  = "ZADU";                      // Dublin University (men)
-
 const fs = require("fs");
 
 async function getJSON(url){
@@ -9,15 +8,17 @@ async function getJSON(url){
   if (!r.ok) throw new Error(url + " -> " + r.status);
   return r.json();
 }
-function ordinal(n){ n = parseInt(n); return (n%10===1&&n!==11)?"st":(n%10===2&&n!==12)?"nd":(n%10===3&&n!==13)?"rd":"th"; }
-function loadSeen(){ try { return JSON.parse(fs.readFileSync("seen.json","utf8")); } catch(e){ return {}; } }
-async function notify(msg){ await fetch(process.env.NTFY_URL, { method:"POST", body: msg }); }
+function ordinal(n){ n=parseInt(n); return (n%10===1&&n!==11)?"st":(n%10===2&&n!==12)?"nd":(n%10===3&&n!==13)?"rd":"th"; }
+function load(f){ try { return JSON.parse(fs.readFileSync(f,"utf8")); } catch(e){ return null; } }
+async function notify(msg){ if (process.env.NTFY_URL) await fetch(process.env.NTFY_URL, { method:"POST", body: msg }); }
 
 (async () => {
-  const seen = loadSeen();
+  const seen = load("seen.json") || {};
   const alerts = [];
+  const out = { updated: new Date().toISOString(), sat: [], sun: [] };
 
   for (const code of DAYS){
+    const dayKey = code.includes("sat") ? "sat" : "sun";
     let info;
     try { info = await getJSON(`https://rowresults.co.uk/raceinfo.php?c=${code}`); }
     catch(e){ console.log("skip", code, e.message); continue; }
@@ -29,28 +30,44 @@ async function notify(msg){ await fetch(process.env.NTFY_URL, { method:"POST", b
       catch(e){ continue; }
 
       const lanes = det.lanes || [];
+      const roundStr  = (det.race && det.race.Round) ? det.race.Round : (r.Round || "");
+      const roundType = /final/i.test(roundStr) ? "final" : "tt";
+      const boat = /4\+/.test(r.Event || "") ? "four" : "eight";
+
+      out[dayKey].push({
+        boat, roundType, dist: roundType === "tt" ? 1900 : 2000,
+        event: (det.race && det.race.RaceName ? det.race.RaceName : r.Event || "").trim(),
+        round: roundStr.trim(),
+        time: r.Time || (det.race && det.race.Time) || "",
+        raceNo: r.Race,
+        resultStatus: det.race ? det.race.ResultStatus : "",
+        lanes: lanes.map(L => ({
+          CrewNum:L.CrewNum, CrewCode:L.CrewCode, ClubName:L.ClubName,
+          Finish:L.Finish, Posn:L.Posn, Split1:L.Split1, Split2:L.Split2, Split3:L.Split3
+        }))
+      });
+
       const us = lanes.find(L => (L.CrewCode || "") === OUR);
-      if (!us) continue;
-
-      const hasResult = String(us.Finish || "").trim() && String(us.Posn || "").trim();
-      if (!hasResult) continue;                          // not posted yet
-
-      const key = `${code}-${r.Race}-${us.Finish}`;       // re-alerts if a time is corrected
-      if (seen[key]) continue;                            // already alerted
-
-      const finishers = lanes.filter(L => String(L.Finish || "").trim()).length;
-      const ev    = (det.race && det.race.RaceName ? det.race.RaceName : r.Event  || "").trim();
-      const round = (det.race && det.race.Round    ? det.race.Round    : r.Round || "").trim();
-      alerts.push(`${ev} ${round}: DUBC ${us.Posn}${ordinal(us.Posn)} of ${finishers} — ${us.Finish}`);
-      seen[key] = true;
+      if (us && String(us.Finish||"").trim() && String(us.Posn||"").trim()){
+        const key = `${code}-${r.Race}-${us.Finish}`;
+        if (!seen[key]){
+          const finishers = lanes.filter(L => String(L.Finish||"").trim()).length;
+          alerts.push(`${(det.race&&det.race.RaceName?det.race.RaceName:r.Event||"").trim()} ${roundStr.trim()}: DUBC ${us.Posn}${ordinal(us.Posn)} of ${finishers} — ${us.Finish}`);
+          seen[key] = true;
+        }
+      }
     }
   }
+
+  // write results.json only when the race data actually changed (avoids needless commits)
+  const prev = load("results.json");
+  const changed = !prev || JSON.stringify({s:prev.sat, u:prev.sun}) !== JSON.stringify({s:out.sat, u:out.sun});
+  if (changed) { fs.writeFileSync("results.json", JSON.stringify(out, null, 2)); console.log("results.json updated"); }
+  else console.log("no data change");
 
   if (alerts.length){
     await notify("Met Regatta result\n" + alerts.join("\n"));
     fs.writeFileSync("seen.json", JSON.stringify(seen, null, 2));
     console.log("Alerted:\n" + alerts.join("\n"));
-  } else {
-    console.log("No new results.");
   }
 })().catch(e => { console.error(e); process.exit(1); });

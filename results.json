@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-31T09:59:01.011Z",
+  "updated": "2026-05-31T10:11:18.880Z",
   "sat": [
     {
       "boat": "four",
@@ -144,7 +144,7 @@
       ]
     },
     {
-      "boat": "eight",
+      "boat": "four",
       "roundType": "final",
       "dist": 2000,
       "event": "Open [Coxed] [Fours]",

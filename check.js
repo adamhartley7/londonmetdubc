@@ -30,10 +30,14 @@ async function notify(msg){ if (process.env.NTFY_URL) await fetch(process.env.NT
       catch(e){ continue; }
 
       const lanes = det.lanes || [];
+
+      // Only keep a race if DUBC is ACTUALLY in the boat list (the search index can list
+      // withdrawn/duplicate entries, which is what put a wrong race in your four slot).
+      const us = lanes.find(L => (L.CrewCode || "") === OUR);
+      if (!us) continue;
+
       const roundStr  = (det.race && det.race.Round) ? det.race.Round : (r.Round || "");
       const roundType = /final/i.test(roundStr) ? "final" : "tt";
-
-      // four-vs-eight: finals are named differently from TTs, so check several forms
       const evStr = `${r.Event || ""} ${(det.race && det.race.RaceName) || ""}`;
       const boat  = /8\+|eight|viii/i.test(evStr) ? "eight" : (/4\+|four/i.test(evStr) ? "four" : null);
 
@@ -50,8 +54,7 @@ async function notify(msg){ if (process.env.NTFY_URL) await fetch(process.env.NT
         }))
       });
 
-      const us = lanes.find(L => (L.CrewCode || "") === OUR);
-      if (us && String(us.Finish||"").trim() && String(us.Posn||"").trim()){
+      if (String(us.Finish||"").trim() && String(us.Posn||"").trim()){
         const key = `${code}-${r.Race}-${us.Finish}`;
         if (!seen[key]){
           const finishers = lanes.filter(L => String(L.Finish||"").trim()).length;

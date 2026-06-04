@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-06-04",
+  "note": "Single source of truth for Oara / OmniRace. Every entry below is a REAL, verified source confirmed against PubMed/PMC and approved by Adam (2026-06-04). The analysis cites ONLY entries here — no entry, no claim (CLAUDE.md, First Law). Do not add fabricated or AI-recalled entries; follow evidence/README.md.",
+  "papers": [
+    {
+      "id": "garland-2005",
+      "authors": "Garland SW",
+      "year": 2005,
+      "title": "An analysis of the pacing strategy adopted by elite competitors in 2000 m rowing",
+      "source": "British Journal of Sports Medicine 39(1):39–42",
+      "doi": "10.1136/bjsm.2003.010801",
+      "pmid": "15618339",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1725010/",
+      "access": "open-access",
+      "verified": true,
+      "verifiedBy": "Adam Hartley",
+      "verifiedOn": "2026-06-04",
+      "notes": "Citation, DOI and segment percentages confirmed against PMC full text (PMC1725010). Sample: 948 on-water race profiles (of 1612) from the 2000 Olympic Games and 2001–2002 World Championships, plus the top 170 at the 2001–2002 British Indoor Rowing Championships."
+    },
+    {
+      "id": "dimakopoulou-2018",
+      "authors": "Dimakopoulou E, Zacharogiannis E, Chairopoulou C, Kaloupsis S, Platanou T",
+      "year": 2018,
+      "title": "The effect of pacing strategy on physiological, kinetic and performance variables during simulated rowing ergometer",
+      "source": "Journal of Sports Medicine and Physical Fitness 58(7–8):1006–1013",
+      "doi": "10.23736/S0022-4707.17.06976-6",
+      "pmid": "28222575",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28222575/",
+      "access": "paywalled",
+      "verified": true,
+      "verifiedBy": "Adam Hartley",
+      "verifiedOn": "2026-06-04",
+      "notes": "Citation, DOI and conclusion confirmed via PubMed (PMID 28222575). Sample: 15 adolescent male rowers (mean ~15 y), 2 km ergometer, three conditions (self-selected vs even vs negative −4%). Small/young sample — treat as suggestive."
+    },
+    {
+      "id": "gee-2013",
+      "authors": "Gee TI, French DN, Gibbon KC, Thompson KG",
+      "year": 2013,
+      "title": "Consistency of pacing and metabolic responses during 2000-m rowing ergometry",
+      "source": "International Journal of Sports Physiology and Performance 8(1):70–76",
+      "doi": "10.1123/ijspp.8.1.70",
+      "pmid": "22868257",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22868257/",
+      "access": "paywalled",
+      "verified": true,
+      "verifiedBy": "Adam Hartley",
+      "verifiedOn": "2026-06-04",
+      "notes": "Citation, DOI and finding confirmed via PubMed (PMID 22868257). Sample: 14 well-trained male rowers, three 2000 m ergometer trials. Mainly a habituation/methodology point."
+    }
+  ],
+  "claims": [
+    {
+      "id": "garland-fast-start-profile",
+      "paperId": "garland-2005",
+      "statement": "Elite 2000 m crews row the first 500 m fastest — about 103% of their average race speed — then settle to roughly 98–99% through the middle with a slight lift in the final 500 m (a fast-start, mildly reverse-J profile). This held regardless of finishing position or sex.",
+      "quote": "rowers performed the first 500 m of the race faster than subsequent sectors",
+      "locator": "Results; on-water sector speeds 103.3%, 99.0%, 98.3%, 99.7% of average",
+      "tags": ["start-fast", "pacing-positive"],
+      "strength": "observational (large descriptive sample, 948 on-water profiles)",
+      "caveats": "Describes what elite championship heavyweights DO, not what is optimal for a club crew; on-water, not ergometer. Use the percentages as a benchmark for the shape, not as a target time."
+    },
+    {
+      "id": "garland-elite-template",
+      "paperId": "garland-2005",
+      "statement": "Mean elite on-water 2000 m pace profile by 500 m sector, expressed as % of average race speed.",
+      "quote": "103.3%, 99.0%, 98.3%, 99.7%",
+      "locator": "Results (on-water profile)",
+      "tags": ["elite-template"],
+      "data": { "segmentPctOfAvgSpeed": [103.3, 99.0, 98.3, 99.7], "basis": "on-water 500 m sectors, % of average race speed" },
+      "strength": "observational (948 profiles)",
+      "caveats": "Mean of elite championship heavyweight crews; an individual or club crew need not match it."
+    },
+    {
+      "id": "dimakopoulou-self-selected-fastest",
+      "paperId": "dimakopoulou-2018",
+      "statement": "When the same rowers were made to row a 2 km erg at an imposed even pace or a negative (−4%) pace versus their own self-selected pace, the self-selected (parabolic, fast-start) profile produced the shortest time and a higher stroke rate for the same physiological cost.",
+      "quote": "SSP (parabolic-shaped profile) allowed rowers to cover the 2-km distance at higher stroke rate and in shorter performance time compared to negative and even pacing strategies presenting same physiological responses",
+      "locator": "Abstract / Results",
+      "tags": ["start-fast"],
+      "strength": "experimental (within-subject, three imposed conditions) — but small, young sample",
+      "caveats": "n=15 adolescent (~15 y) male rowers; ergometer. Suggestive, not definitive; may not generalise to senior or on-water crews."
+    },
+    {
+      "id": "gee-end-spurt-habituation",
+      "paperId": "gee-2013",
+      "statement": "Well-trained rowers settled into a reverse-J pacing pattern with an end-spurt — increased power output over the final 500 m — once habituated to repeated 2 km erg tests; a positive (front-loaded) profile on the first trial shifted toward this with familiarisation.",
+      "quote": "trial 1 ... featured a higher starting power output and more progressive decrease in power, to trials 2 and 3, which were characterized by a more conservative start and an end spurt with increased power output during the final 500 m",
+      "locator": "Results / Conclusion",
+      "tags": ["finish-sprint"],
+      "strength": "experimental (repeated-measures, 3 trials)",
+      "caveats": "n=14 well-trained male rowers; ergometer. The headline practical point is that a habituation trial is needed before testing."
+    }
+  ]
+}

@@ -225,6 +225,54 @@
   #coxConsensus{width:100%;min-height:70px;font-family:"Spectral";font-size:.92rem;line-height:1.5;
     padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:#fffdf6;color:var(--ink);resize:vertical}
   #coxConsensus:focus{outline:2px solid var(--brass2);border-color:var(--brass2)}
+  .cons-note{font-size:.82rem;color:var(--muted);line-height:1.5;margin-bottom:10px}
+  .cons-note b{font-family:"Fraunces";color:var(--ink)}
+  .cons-form{background:rgba(255,255,255,.4);border:1px solid var(--line);border-radius:14px;padding:13px 14px}
+  .cons-row1{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:11px}
+  .cons-anon{display:inline-flex;align-items:center;gap:7px;font-size:.86rem;font-weight:600;color:var(--ink);cursor:pointer;font-family:"Spectral"}
+  .cons-anon input{width:16px;height:16px;accent-color:var(--water3)}
+  .cons-who{flex:1;min-width:130px;font-family:"Spectral";font-size:.9rem;padding:7px 11px;border:1px solid var(--line);border-radius:10px;background:#fffdf6;color:var(--ink)}
+  .cons-who:disabled{background:rgba(16,28,27,.05);color:var(--muted);cursor:not-allowed}
+  .cons-who:focus{outline:2px solid var(--brass2);border-color:var(--brass2)}
+  .cons-feel{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:11px}
+  .cons-q{font-family:"Fraunces";font-weight:600;font-size:.92rem}
+  .cons-scale{display:inline-flex;gap:5px}
+  .cons-scale button{width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:#fffdf6;
+    font-family:"Fraunces";font-weight:700;font-size:.95rem;color:var(--muted);cursor:pointer;transition:.15s}
+  .cons-scale button.on{background:var(--water3);border-color:var(--water3);color:var(--paper);transform:translateY(-1px)}
+  .cons-feelhint{font-size:.74rem;color:var(--muted);font-style:italic}
+  .cons-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:11px}
+  .cons-tag{font-family:"Spectral";font-size:.78rem;color:var(--muted);background:#fffdf6;border:1px solid var(--line);
+    border-radius:20px;padding:5px 11px;cursor:pointer;transition:.15s}
+  .cons-tag.on{background:rgba(199,146,54,.18);border-color:var(--brass);color:var(--ink);font-weight:600}
+  .cons-actions{display:flex;align-items:center;gap:10px;margin-top:11px}
+  .cons-aggttl,.cons-listttl{font-family:"Fraunces";font-weight:600;font-size:1.02rem;margin:16px 0 4px}
+  .cons-aggttl span,.cons-listttl span{font-family:"Spectral";font-weight:400;font-size:.76rem;color:var(--muted);font-style:italic}
+  .cons-tally{margin:10px 0 4px}
+  .cons-tallyrow{display:flex;align-items:center;gap:9px;margin:5px 0}
+  .cons-tallyrow .cn{font-size:.8rem;width:120px;flex:none;color:var(--ink)}
+  .cons-tallyrow .cb{flex:1;height:9px;background:rgba(0,0,0,.06);border-radius:5px;overflow:hidden}
+  .cons-tallyrow .cb span{display:block;height:100%;background:linear-gradient(90deg,var(--brass2),var(--brass));border-radius:5px;transition:width .4s}
+  .cons-tallyrow .cc{font-family:"Fraunces";font-weight:700;font-size:.82rem;width:18px;text-align:right;color:var(--water2)}
+  .cons-empty{font-size:.86rem;color:var(--muted);font-style:italic;padding:8px 2px}
+  .cons-entry{background:var(--paper2);border:1px solid var(--line);border-radius:11px;padding:9px 12px;margin:7px 0}
+  .cons-entry-h{display:flex;align-items:center;gap:8px}
+  .cons-anontag{font-family:"Spectral";font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+    background:rgba(16,28,27,.06);border-radius:20px;padding:2px 9px}
+  .cons-whotag{font-family:"Fraunces";font-weight:700;font-size:.86rem;color:var(--water2)}
+  .cons-feelbadge{font-family:"Fraunces";font-weight:700;font-size:.74rem;color:var(--paper);background:var(--water3);border-radius:20px;padding:2px 8px}
+  .cons-del{margin-left:auto;border:none;background:none;color:var(--muted);font-size:1.15rem;line-height:1;cursor:pointer;padding:0 3px}
+  .cons-del:hover{color:var(--crimson)}
+  .cons-entry-t{font-size:.9rem;line-height:1.5;margin-top:5px;white-space:pre-wrap}
+  .cons-entry-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+  .cons-mini{font-size:.7rem;color:var(--muted);background:rgba(199,146,54,.13);border-radius:14px;padding:2px 8px}
+  .cons-wide button{width:auto !important;min-width:42px;padding:0 10px}
+  .cons-synth{background:rgba(28,106,100,.07);border:1px solid var(--line);border-left:3px solid var(--water3);
+    border-radius:12px;padding:11px 14px;margin:14px 0 4px}
+  .cons-synth-h{font-family:"Fraunces";font-weight:600;font-size:.96rem;margin-bottom:5px}
+  .cons-synth-h span{font-family:"Spectral";font-weight:400;font-size:.74rem;color:var(--muted);font-style:italic}
+  .cons-synth-t{font-size:.92rem;line-height:1.55}
+  .cons-synth-t b{font-family:"Fraunces"}
   .analysis{margin-top:18px}
   .analysis h3{font-family:"Fraunces";font-weight:700;font-size:1.3rem;margin-bottom:4px}
   .ana-shape{padding:12px 15px;border-radius:13px;background:rgba(16,28,27,.05);margin:10px 0 16px;font-size:.95rem}
@@ -465,11 +513,50 @@
       <div class="chartcard"><div class="ct">Split (/500 m) through the race · lower = faster</div><div id="coxSplitChart"></div></div>
       <div class="chartcard"><div class="ct">Stroke rate (spm) through the race</div><div id="coxRateChart"></div></div>
       <div class="chartcard"><div class="ct">Boat run — metres per stroke · higher = more run</div><div id="coxRunChart"></div></div>
-      <div class="chartcard"><div class="ct">Your shape vs the elite template (Garland 2005)</div><div id="coxShapeChart"></div></div>
+      <!-- Elite-template overlay is intentionally hidden until a VERIFIED rowing-pacing source is in the evidence store (CLAUDE.md, First Law). No unverified "elite" curve is drawn. -->
+      <div class="chartcard" id="coxShapeCard" style="display:none"><div class="ct">Your shape vs the elite template (Garland 2005)</div><div id="coxShapeChart"></div></div>
     </div>
     <div class="cox-consensus">
-      <label for="coxConsensus" class="conslabel">Boat consensus of the row</label>
-      <textarea id="coxConsensus" placeholder="A few words from the crew — how did it feel? e.g. 'Start felt rushed, settled well, third 500 went heavy, good push in the last 250.'"></textarea>
+      <label class="conslabel">Boat consensus of the row</label>
+      <div class="cons-note">
+        Each of the crew adds how the row felt. <b>Anonymous by default</b> — no name is attached unless someone chooses to add their seat. Saved only on <b>this device</b> (nothing is uploaded). It's combined by <b>counting only</b> into a short brief — the tallies and the felt-vs-clock check are real arithmetic, and every individual comment is shown <b>verbatim, never machine-interpreted</b>. Paste it into chat for a richer written synthesis. <i>(True multi-device collection arrives with crew accounts in the app; for now pass the phone round, or type each person's line.)</i>
+      </div>
+      <div class="cons-form">
+        <div class="cons-row1">
+          <label class="cons-anon"><input type="checkbox" id="consAnon" checked> Stay anonymous</label>
+          <input type="text" id="consWho" class="cons-who" placeholder="Seat or name (optional)" maxlength="24" disabled>
+        </div>
+        <div class="cons-feel">
+          <span class="cons-q">How did it feel?</span>
+          <div class="cons-scale" id="consScale">
+            <button type="button" data-feel="1">1</button>
+            <button type="button" data-feel="2">2</button>
+            <button type="button" data-feel="3">3</button>
+            <button type="button" data-feel="4">4</button>
+            <button type="button" data-feel="5">5</button>
+          </div>
+          <span class="cons-feelhint">1 rough · 5 great · optional</span>
+        </div>
+        <div class="cons-feel">
+          <span class="cons-q">Toughest 500?</span>
+          <div class="cons-scale cons-wide" id="consTough">
+            <button type="button" data-tough="1">1st</button>
+            <button type="button" data-tough="2">2nd</button>
+            <button type="button" data-tough="3">3rd</button>
+            <button type="button" data-tough="4">4th</button>
+          </div>
+          <span class="cons-feelhint">where it hurt most · optional</span>
+        </div>
+        <div class="cons-tags" id="consTags"></div>
+        <textarea id="coxConsensus" placeholder="A few words — e.g. 'Start felt rushed, settled well, third 500 went heavy, good push in the last 250.'"></textarea>
+        <div class="cons-actions">
+          <button class="parsebtn" id="consAdd">Add to consensus</button>
+          <button class="clearbtn" id="consClear">Clear all</button>
+          <span class="upd" id="consUpd"></span>
+        </div>
+      </div>
+      <div id="consSummary"></div>
+      <div id="consList"></div>
     </div>
     <div id="coxAnalysis"></div>
   </section>
@@ -1055,7 +1142,409 @@ document.getElementById("autoBtn").addEventListener("click",function(){
   if(autoRefresh){ updateLive(day); autoTimer=setInterval(()=>{ if(view==="results") updateLive(day); }, 60000); }
 });
 
-initResults();
+/* ============ COXBOX RACE BREAKDOWN (OmniRace seed) ============
+ * Deterministic analysis of a pasted CoxBox 100 m log — pure arithmetic on
+ * YOUR numbers. No invented splits, rates, or "facts". Ported 1:1 from
+ * coxbox-engine.js so it moves into the real app unchanged. Reuses the page's
+ * own parseTime()/fmt() so there's a single clock convention. */
+function coxParse(text){
+  const rows=[], errors=[];
+  if(!text) return {rows,errors};
+  for(const raw of String(text).replace(/\r/g,"").split("\n")){
+    const line=raw.trim();
+    if(!line) continue;
+    if(/^[|\s:+-]+$/.test(line)) continue;                 // markdown separator |---|---|
+    let cells = line.indexOf("|")!==-1
+      ? line.split("|").map(c=>c.trim())
+      : line.split(/[,\t]+|\s{2,}|\s+/).map(c=>c.trim());
+    cells = cells.filter(c=>c!=="");
+    if(cells.length<2) continue;
+    const distance=parseFloat(cells[0]);
+    if(!isFinite(distance)) continue;                       // header row, etc.
+    const time=parseTime(cells[1]);
+    if(time==null){ errors.push("Couldn’t read the cumulative time on: "+line); continue; }
+    const split=cells.length>2?parseTime(cells[2]):null;
+    const rate=cells.length>3?parseFloat(cells[3]):NaN;
+    rows.push({distance, time, split, rate:isFinite(rate)?rate:null});
+  }
+  rows.sort((a,b)=>a.distance-b.distance);
+  return {rows,errors};
+}
+function coxMean(xs){const v=xs.filter(x=>x!=null&&isFinite(x));return v.length?v.reduce((a,b)=>a+b,0)/v.length:null;}
+function coxSD(xs){const v=xs.filter(x=>x!=null&&isFinite(x));if(v.length<2)return null;const mu=coxMean(v);return Math.sqrt(v.reduce((a,b)=>a+(b-mu)*(b-mu),0)/v.length);}
+function coxMetrics(rows){
+  if(!rows||rows.length<2) return null;
+  const total=rows[rows.length-1].distance, totalTime=rows[rows.length-1].time;
+  const segments=[]; let prevD=0, prevT=0;
+  for(const r of rows){
+    const interval=r.distance-prevD, sectional=r.time-prevT;
+    if(interval<=0||sectional<=0){ prevD=r.distance; prevT=r.time; continue; }
+    const speed=interval/sectional;                          // m/s
+    const split500=sectional*(500/interval);                 // per-500 pace from time deltas
+    const strokes=r.rate!=null?r.rate*sectional/60:null;     // strokes taken in this section
+    const run=strokes?interval/strokes:null;                 // metres per stroke
+    segments.push({distance:r.distance, interval, sectional, speed, split500, rate:r.rate, run, reportedSplit:r.split});
+    prevD=r.distance; prevT=r.time;
+  }
+  if(segments.length<1) return null;
+  const qLen=total/4;
+  const quarters=[0,1,2,3].map(q=>{
+    const lo=q*qLen, hi=(q+1)*qLen+1e-6;
+    const segs=segments.filter(s=>s.distance>lo&&s.distance<=hi);
+    const dist=segs.reduce((a,s)=>a+s.interval,0), time=segs.reduce((a,s)=>a+s.sectional,0);
+    return {label:Math.round(lo)+"–"+Math.round((q+1)*qLen), dist, time,
+      split500:dist>0?time*(500/dist):null, rate:coxMean(segs.map(s=>s.rate))};
+  });
+  const halfSplit=hs=>{const d=hs.reduce((a,q)=>a+q.dist,0), t=hs.reduce((a,q)=>a+q.time,0);return d>0?t*(500/d):null;};
+  const firstHalfSplit=halfSplit(quarters.slice(0,2)), secondHalfSplit=halfSplit(quarters.slice(2));
+  const fade=(firstHalfSplit!=null&&secondHalfSplit!=null)?secondHalfSplit-firstHalfSplit:null;
+  let profile="even split";
+  if(fade!=null) profile = fade>1 ? "positive split (slowed through the race)" : fade<-1 ? "negative split (built through the race)" : "even split";
+  const valid=segments.filter(s=>isFinite(s.split500));
+  const fastestSeg=valid.reduce((a,s)=>(a==null||s.split500<a.split500?s:a),null);
+  const slowestSeg=valid.reduce((a,s)=>(a==null||s.split500>a.split500?s:a),null);
+  const runs=segments.filter(s=>s.run!=null).map(s=>s.run);
+  return {total, totalTime, avgSplit500:totalTime*(500/total), avgSpeed:total/totalTime,
+    segments, quarters, firstHalfSplit, secondHalfSplit, fade, profile,
+    rate:{mean:coxMean(segments.map(s=>s.rate)), sd:coxSD(segments.map(s=>s.rate)),
+      min:Math.min(...segments.map(s=>s.rate??Infinity)), max:Math.max(...segments.map(s=>s.rate??-Infinity))},
+    run:{mean:coxMean(runs), min:runs.length?Math.min(...runs):null, max:runs.length?Math.max(...runs):null},
+    fastestSeg, slowestSeg};
+}
+
+/* ---- CoxBox renderers (deterministic; nothing invented) ---- */
+function coxRenderSummary(m){
+  const sd = m.rate.sd==null ? "" : " · SD "+m.rate.sd.toFixed(1);
+  const rateRange = (isFinite(m.rate.min)&&isFinite(m.rate.max)) ? m.rate.min+"–"+m.rate.max : "—";
+  const rateVal = m.rate.mean==null ? "—" : m.rate.mean.toFixed(1)+" <small>spm"+sd+" · "+rateRange+"</small>";
+  const cards=[
+    ["Distance",            m.total+" <small>m</small>"],
+    ["Total time",          fmt(m.totalTime)],
+    ["Avg / 500 m",         fmt(m.avgSplit500)],
+    ["Avg speed",           m.avgSpeed.toFixed(2)+" <small>m/s</small>"],
+    ["Rate",                rateVal],
+    ["Run / stroke",        m.run.mean==null?"—":m.run.mean.toFixed(2)+" <small>m/stroke</small>"]
+  ];
+  const cardsHTML=`<div class="coxsum">`+cards.map(c=>`<div class="s"><div class="k">${c[0]}</div><div class="v">${c[1]}</div></div>`).join("")+`</div>`;
+  // Pacing SHAPE line: a plain restatement of the numbers (arithmetic, not a literature/coaching claim).
+  let shape="";
+  if(m.fade!=null){
+    const dir = m.fade>0?"slower":m.fade<0?"faster":"the same";
+    shape=`<div class="ana-shape">Pacing shape — <b>${esc(m.profile)}</b>. First half ${fmt(m.firstHalfSplit)}/500, second half ${fmt(m.secondHalfSplit)}/500 — that's ${(m.fade>=0?"+":"")}${m.fade.toFixed(1)} s ${dir}. Fastest 100&nbsp;m at <b>${m.fastestSeg.distance} m</b> (${fmt(m.fastestSeg.split500)}/500), slowest at <b>${m.slowestSeg.distance} m</b> (${fmt(m.slowestSeg.split500)}/500). These are your numbers, not a coaching judgement.</div>`;
+  }
+  document.getElementById("coxSummary").innerHTML=cardsHTML+shape;
+}
+function coxRenderTable(m){
+  const fastD = m.fastestSeg ? m.fastestSeg.distance : null;
+  const head=`<tr><th>Dist</th><th>Section</th><th>/500 m</th><th>Speed</th><th>Rate</th><th>Run</th></tr>`;
+  const body=m.segments.map(s=>{
+    const fast = s.distance===fastD ? ' style="color:var(--water2);font-weight:700"' : "";
+    return `<tr><td class="pl">${s.distance}</td><td class="tm">${fmt(s.sectional)}</td><td class="tm"${fast}>${fmt(s.split500)}</td>`
+      +`<td>${s.speed.toFixed(2)}</td><td>${s.rate==null?"—":s.rate}</td><td>${s.run==null?"—":s.run.toFixed(2)}</td></tr>`;
+  }).join("");
+  document.getElementById("coxTable").innerHTML=`<div class="restable"><table>${head}${body}</table></div>`;
+}
+function coxLineChart(el, vals, dists, o){
+  if(!el) return;
+  const N=vals.length;
+  const good=vals.map((v,i)=>({v,i})).filter(p=>p.v!=null&&isFinite(p.v));
+  if(good.length<2){ el.innerHTML=`<div class="empty">${o.empty||"Not enough data to chart yet."}</div>`; return; }
+  const W=C.w, H=C.h, padL=10, padR=10, padT=24, padB=30;
+  const innerW=W-padL-padR, innerH=H-padT-padB;
+  let lo=Math.min(...good.map(p=>p.v)), hi=Math.max(...good.map(p=>p.v));
+  if(lo===hi){ lo-=1; hi+=1; } else { const m=(hi-lo)*0.2; lo-=m; hi+=m; }
+  const x=i=>padL+(N<=1?0:(i/(N-1))*innerW);
+  const y=v=>padT+innerH-((v-lo)/(hi-lo))*innerH;
+  const pts=good.map(p=>({x:x(p.i), y:y(p.v), v:p.v, i:p.i}));
+  const line=smoothPath(pts);
+  const area=line+` L ${pts[pts.length-1].x} ${padT+innerH} L ${pts[0].x} ${padT+innerH} Z`;
+  const mean=good.reduce((a,p)=>a+p.v,0)/good.length, my=y(mean);
+  let minP=good[0], maxP=good[0];
+  good.forEach(p=>{ if(p.v<minP.v)minP=p; if(p.v>maxP.v)maxP=p; });
+  const lab=p=>`<circle cx="${x(p.i)}" cy="${y(p.v)}" r="3.4" fill="${o.stroke}"/>`
+    +`<text x="${Math.max(padL+14,Math.min(W-padR-14,x(p.i)))}" y="${y(p.v)+(p===minP?-9:18)}" text-anchor="middle" font-size="12" font-family="Fraunces" font-weight="700" fill="${o.stroke}">${o.fmt(p.v)}</text>`;
+  const gid="cg_"+o.id;
+  const ticks=[]; const step=Math.max(1,Math.round(N/5));
+  for(let i=0;i<N;i+=step){ if(dists[i]!=null) ticks.push(`<text x="${x(i)}" y="${H-9}" text-anchor="middle" font-size="10" font-family="Spectral" fill="#5c6b66">${dists[i]}</text>`); }
+  el.innerHTML=`<svg viewBox="0 0 ${W} ${H}">
+     <defs><linearGradient id="${gid}" x1="0" x2="0" y1="0" y2="1">
+       <stop offset="0" stop-color="${o.fill1}"/><stop offset="1" stop-color="${o.fill2}"/></linearGradient></defs>
+     <line x1="${padL}" y1="${my}" x2="${W-padR}" y2="${my}" stroke="${o.stroke}" stroke-width="1" stroke-dasharray="3 4" opacity=".4"/>
+     <text x="${W-padR}" y="${my-5}" text-anchor="end" font-size="10.5" font-family="Spectral" fill="${o.stroke}" opacity=".85">avg ${o.fmt(mean)}</text>
+     <path d="${area}" fill="url(#${gid})"/>
+     <path d="${line}" fill="none" stroke="${o.stroke}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+     ${pts.map(p=>`<circle cx="${p.x}" cy="${p.y}" r="2" fill="${o.stroke}" opacity=".5"/>`).join("")}
+     ${lab(minP)}${minP!==maxP?lab(maxP):""}
+     ${ticks.join("")}
+   </svg>`;
+}
+function coxRenderCharts(m){
+  const dists=m.segments.map(s=>s.distance);
+  coxLineChart(document.getElementById("coxSplitChart"), m.segments.map(s=>s.split500), dists,
+    {id:"split", stroke:"#9c2b22", fill1:"rgba(156,43,34,.26)", fill2:"rgba(156,43,34,0)", fmt:v=>fmt(v)});
+  coxLineChart(document.getElementById("coxRateChart"), m.segments.map(s=>s.rate), dists,
+    {id:"rate", stroke:"#1c6a64", fill1:"rgba(28,106,100,.28)", fill2:"rgba(28,106,100,0)", fmt:v=>v.toFixed(0), empty:"No rate column in the paste — add a Rate column to chart this."});
+  coxLineChart(document.getElementById("coxRunChart"), m.segments.map(s=>s.run), dists,
+    {id:"run", stroke:"#c79236", fill1:"rgba(199,146,54,.30)", fill2:"rgba(199,146,54,0)", fmt:v=>v.toFixed(2), empty:"Run needs a Rate column — add one to chart metres-per-stroke."});
+}
+/* ---- Evidence store (vetted papers → citable claims) ----
+ * Single source of truth = evidence/evidence.json. The analysis may cite ONLY
+ * entries that live there. No entry → no claim (CLAUDE.md, First Law). Loaded at
+ * runtime like results.json; on file:// it simply stays EMPTY, which is honest. */
+let EVIDENCE={schemaVersion:1, papers:[], claims:[]};
+async function loadEvidence(){
+  try{
+    const r=await fetch("evidence/evidence.json?t="+Date.now(),{cache:"no-store"});
+    if(r.ok){ const j=await r.json(); if(j&&Array.isArray(j.papers)&&Array.isArray(j.claims)) EVIDENCE=j; }
+  }catch(e){ /* offline / file:// — store stays empty, analysis shows numbers only */ }
+}
+function coxPaperById(id){ return EVIDENCE.papers.find(p=>p.id===id)||null; }
+function coxClaimsForTag(tag){ return EVIDENCE.claims.filter(c=>Array.isArray(c.tags)&&c.tags.indexOf(tag)!==-1&&coxPaperById(c.paperId)); }
+function coxCite(p){
+  if(!p) return "";
+  const y=p.year?" ("+p.year+")":"";
+  const where=p.doi?" doi:"+p.doi:(p.url?" "+p.url:"");
+  return esc((p.authors||"—")+y+". "+(p.title||"")+(p.source?". "+p.source:"")+".")+(where?" "+esc(where.trim()):"");
+}
+/* Observations = deterministic arithmetic on the log, each carrying a tag from the
+ * controlled vocabulary (see evidence/README.md). Praise-first: strengths, then work-ons. */
+function coxObservations(m){
+  const good=[], imp=[];
+  if(m.fade!=null){
+    if(m.fade>1) imp.push({tag:"pacing-positive", obs:"Positive split — the second half averaged "+fmt(m.secondHalfSplit)+"/500 against "+fmt(m.firstHalfSplit)+"/500 in the first: a fade of "+m.fade.toFixed(1)+" s/500."});
+    else if(m.fade<-1) good.push({tag:"pacing-negative", obs:"Negative split — you built into the race: "+fmt(m.firstHalfSplit)+"/500 first half, "+fmt(m.secondHalfSplit)+"/500 second ("+Math.abs(m.fade).toFixed(1)+" s/500 faster)."});
+    else good.push({tag:"pacing-even", obs:"Even pace — the two halves sat within "+Math.abs(m.fade).toFixed(1)+" s/500 ("+fmt(m.firstHalfSplit)+" vs "+fmt(m.secondHalfSplit)+")."});
+  }
+  if(m.segments.length){
+    const s0=m.segments[0], d=m.avgSplit500-s0.split500;
+    if(d>2) good.push({tag:"start-fast", obs:"Committed first 100 m — "+fmt(s0.split500)+"/500, "+d.toFixed(1)+" s/500 quicker than your race average of "+fmt(m.avgSplit500)+". A fast first 500 is the elite norm; the real question is whether you held it (see fade)."});
+  }
+  if(m.segments.length>=3){
+    const last=m.segments[m.segments.length-1], f=m.avgSplit500-last.split500;
+    if(f>1.5) good.push({tag:"finish-sprint", obs:"Strong finish — final 100 m at "+fmt(last.split500)+"/500, "+f.toFixed(1)+" s/500 under your average."});
+  }
+  if(m.rate.sd!=null){
+    if(m.rate.sd<=1.2) good.push({tag:"rate-stable", obs:"Metronomic rate — held "+m.rate.mean.toFixed(1)+" spm (SD "+m.rate.sd.toFixed(1)+")."});
+    else if(m.rate.sd>=2.5) imp.push({tag:"rate-variable", obs:"Rate wandered — "+m.rate.mean.toFixed(1)+" spm mean but SD "+m.rate.sd.toFixed(1)+" (range "+m.rate.min+"–"+m.rate.max+")."});
+  }
+  return {good, imp};
+}
+function coxRenderAnalysis(m){
+  const host=document.getElementById("coxAnalysis"); if(!host) return;
+  const {good,imp}=coxObservations(m);
+  const used=new Set();
+  const itemHTML=o=>{
+    const claims=coxClaimsForTag(o.tag);
+    let body=`<div class="obs">${esc(o.obs)}</div>`;
+    if(claims.length){
+      claims.forEach(c=>{ const p=coxPaperById(c.paperId); if(p)used.add(p.id);
+        body+=`<div class="why">${esc(c.statement)}</div><div class="lit">${coxCite(p)}${c.locator?" · "+esc(c.locator):""}</div>`; });
+    } else {
+      body+=`<div class="why" style="font-style:italic;opacity:.85">Interpretation pending a vetted source — the number above is yours; the science stays hidden until a real paper backs it.</div>`;
+    }
+    return `<div class="ana-item">${body}</div>`;
+  };
+  const col=(cls,title,icon,items)=> items.length ? `<div class="ana-col ${cls}"><h4>${icon} ${title}</h4>${items.map(itemHTML).join("")}</div>` : "";
+  // Build the columns FIRST (this fills `used`), THEN the reference list — order matters.
+  const goodHTML=col("good","What went well","▲",good);
+  const impHTML=col("imp","To work on","△",imp);
+  const grounded = EVIDENCE.claims.some(c=>coxPaperById(c.paperId));
+  const header = grounded
+    ? "Your numbers are always shown; the scientific interpretation appears where a vetted source supports it."
+    : "The evidence store is empty, so only your numbers are shown — no scientific interpretation yet. Add vetted papers to <code>evidence/evidence.json</code> and matching points gain a citation automatically.";
+  const refs = used.size ? `<div class="refs"><b>Sources cited</b><br>${[...used].map(id=>coxCite(coxPaperById(id))).join("<br>")}</div>` : "";
+  host.innerHTML=`<div class="analysis">
+    <h3>Pacing analysis</h3>
+    <div class="ana-disclaim" style="margin-top:0;border-top:0;padding-top:0">${header}</div>
+    <div style="display:grid;gap:0">${goodHTML}${impHTML}</div>
+    ${refs}
+    <div class="ana-disclaim">Observations are deterministic arithmetic on your CoxBox log against stated rule-of-thumb thresholds — a heuristic, not a coach. Scientific claims appear only when linked to a verified entry in the evidence store: no entry, no claim.</div>
+  </div>`;
+}
+/* Elite-template overlay: your per-quarter speed (% of your own average) vs the elite
+ * mean profile. Drawn ONLY if a verified claim tagged "elite-template" supplies the data. */
+function coxRenderShape(m){
+  const card=document.getElementById("coxShapeCard"), host=document.getElementById("coxShapeChart");
+  if(!card||!host) return;
+  const claim=EVIDENCE.claims.find(c=>Array.isArray(c.tags)&&c.tags.indexOf("elite-template")!==-1&&c.data&&Array.isArray(c.data.segmentPctOfAvgSpeed)&&c.data.segmentPctOfAvgSpeed.length===4&&coxPaperById(c.paperId));
+  if(!claim || !m.quarters || m.quarters.some(q=>q.split500==null)){ card.style.display="none"; host.innerHTML=""; return; }
+  const elite=claim.data.segmentPctOfAvgSpeed;
+  const rower=m.quarters.map(q=>(m.avgSplit500/q.split500)*100); // % of the rower's own average speed
+  const W=C.w,H=C.h,padL=10,padR=10,padT=26,padB=30, innerW=W-padL-padR, innerH=H-padT-padB, N=4;
+  const all=elite.concat(rower).concat([100]);
+  let lo=Math.min(...all), hi=Math.max(...all); const mg=(hi-lo)*0.25||1; lo-=mg; hi+=mg;
+  const x=i=>padL+(i/(N-1))*innerW, y=v=>padT+innerH-((v-lo)/(hi-lo))*innerH;
+  const path=arr=>smoothPath(arr.map((v,i)=>({x:x(i),y:y(v)})));
+  const dots=(arr,col)=>arr.map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="2.6" fill="${col}"/>`).join("");
+  const y100=y(100);
+  const labels=m.quarters.map(q=>q.label);
+  const p=coxPaperById(claim.paperId), src=p?(p.authors+" "+p.year):"elite";
+  host.innerHTML=`<svg viewBox="0 0 ${W} ${H}">
+    <line x1="${padL}" y1="${y100}" x2="${W-padR}" y2="${y100}" stroke="#5c6b66" stroke-width="1" stroke-dasharray="2 4" opacity=".5"/>
+    <text x="${padL}" y="${y100-4}" font-size="10" font-family="Spectral" fill="#5c6b66">100% — your average speed</text>
+    <path d="${path(elite)}" fill="none" stroke="#c79236" stroke-width="2.4" stroke-dasharray="5 4" stroke-linecap="round"/>${dots(elite,"#c79236")}
+    <path d="${path(rower)}" fill="none" stroke="#9c2b22" stroke-width="2.6" stroke-linecap="round"/>${dots(rower,"#9c2b22")}
+    ${rower.map((v,i)=>`<text x="${x(i)}" y="${y(v)+(v>=elite[i]?-9:18)}" text-anchor="middle" font-size="11" font-family="Fraunces" font-weight="700" fill="#9c2b22">${v.toFixed(1)}%</text>`).join("")}
+    ${labels.map((l,i)=>`<text x="${x(i)}" y="${H-9}" text-anchor="middle" font-size="9" font-family="Spectral" fill="#5c6b66">${esc(l)}</text>`).join("")}
+    <text x="${W-padR}" y="${padT-10}" text-anchor="end" font-size="10.5" font-family="Spectral" fill="#c79236">– – elite mean (${esc(src)})</text>
+    <text x="${padL}" y="${padT-10}" font-size="10.5" font-family="Spectral" font-weight="700" fill="#9c2b22">you</text>
+  </svg>`;
+  card.style.display="";
+}
+let coxLastMetrics=null;   // last successful breakdown — lets boat consensus cross-check feel vs the clock
+function coxBuild(){
+  const ta=document.getElementById("coxPaste"), upd=document.getElementById("coxUpd");
+  const {rows,errors}=coxParse(ta?ta.value:"");
+  if(rows.length<2){
+    document.getElementById("coxSummary").innerHTML=`<div class="empty" style="padding:10px 2px">I need at least two 100&nbsp;m rows (distance + cumulative time) to work out sections. Check the paste — one row per 100&nbsp;m, e.g. <code>100 | 0:20.8 | 1:44.0 | 41</code>.</div>`;
+    document.getElementById("coxTable").innerHTML="";
+    document.getElementById("coxCharts").style.display="none";
+    document.getElementById("coxShapeCard").style.display="none";
+    document.getElementById("coxAnalysis").innerHTML="";
+    coxLastMetrics=null; if(typeof consRenderAgg==="function") consRenderAgg();
+    if(upd) upd.textContent="";
+    return;
+  }
+  const m=coxMetrics(rows);
+  coxRenderSummary(m); coxRenderTable(m); coxRenderCharts(m); coxRenderShape(m); coxRenderAnalysis(m);
+  document.getElementById("coxCharts").style.display="";
+  coxLastMetrics=m; if(typeof consRenderAgg==="function") consRenderAgg();   // refresh the feel-vs-clock line
+  if(upd) upd.textContent="Built from "+m.segments.length+" sections · "+m.total+" m"+(errors.length?" · "+errors.length+" line(s) skipped":"");
+}
+function coxClearAll(){
+  const ta=document.getElementById("coxPaste"); if(ta) ta.value="";
+  document.getElementById("coxSummary").innerHTML="";
+  document.getElementById("coxTable").innerHTML="";
+  document.getElementById("coxCharts").style.display="none";
+  ["coxSplitChart","coxRateChart","coxRunChart","coxShapeChart"].forEach(id=>{const e=document.getElementById(id);if(e)e.innerHTML="";});
+  document.getElementById("coxShapeCard").style.display="none";
+  document.getElementById("coxAnalysis").innerHTML="";
+  coxLastMetrics=null; if(typeof consRenderAgg==="function") consRenderAgg();
+  const upd=document.getElementById("coxUpd"); if(upd) upd.textContent="";
+}
+(function(){
+  const b=document.getElementById("coxBuild"), c=document.getElementById("coxClear");
+  if(b) b.addEventListener("click",coxBuild);
+  if(c) c.addEventListener("click",coxClearAll);
+})();
+
+/* ============ BOAT CONSENSUS (anonymous by default; local-only; deterministic) ============
+ * The crew's FEEL of the row. Identity is OFF by default (anonymous). Saved in THIS browser
+ * only (localStorage) — nothing is uploaded. Combined by counting/averaging ONLY; free text is
+ * shown verbatim and never machine-read or paraphrased. The counts ARE composed into a short
+ * deterministic brief (tallies + a felt-vs-clock check) — arithmetic, not interpretation
+ * (First Law: no invented synthesis of feel). In the
+ * app (Phase 1) each entry becomes a per-race row with an `anon` flag + real multi-device input. */
+const CONS_KEY="oara_consensus_v1";
+const CONS_TAGS=["Rushed start","Settled well","Strong middle","Heavy 3rd 500","Good final push","Rate too high","Together","Lost the rhythm"];
+let consState={ entries:[], feel:null, tags:[], tough:null };
+function consLoad(){
+  try{ const j=JSON.parse(localStorage.getItem(CONS_KEY)); if(j&&Array.isArray(j.entries)) consState.entries=j.entries; }catch(e){}
+}
+function consSave(){ try{ localStorage.setItem(CONS_KEY, JSON.stringify({entries:consState.entries})); }catch(e){} }
+function consRenderForm(){
+  const tg=document.getElementById("consTags");
+  if(tg) tg.innerHTML=CONS_TAGS.map(t=>`<button type="button" class="cons-tag${consState.tags.indexOf(t)!==-1?" on":""}" data-tag="${esc(t)}">${esc(t)}</button>`).join("");
+  document.querySelectorAll("#consScale button").forEach(b=>b.classList.toggle("on",+b.dataset.feel===consState.feel));
+  document.querySelectorAll("#consTough button").forEach(b=>b.classList.toggle("on",+b.dataset.tough===consState.tough));
+}
+function consAdd(){
+  const anonEl=document.getElementById("consAnon"), whoEl=document.getElementById("consWho"), txtEl=document.getElementById("coxConsensus");
+  const anon=anonEl.checked, who=(whoEl.value||"").trim(), text=(txtEl.value||"").trim();
+  const u=document.getElementById("consUpd");
+  if(consState.feel==null && consState.tags.length===0 && !text && consState.tough==null){ if(u)u.textContent="Add a feel, a tag, the toughest 500, or a note first."; return; }
+  consState.entries.push({
+    id:Date.now()+"-"+Math.random().toString(36).slice(2,7), ts:Date.now(),
+    anon: anon || !who,                 // anonymous if the box is ticked OR no name was given
+    who: (!anon && who) ? who : "",     // identity stored only when explicitly opted in
+    feel: consState.feel, tags: consState.tags.slice(), tough: consState.tough, text
+  });
+  consSave();
+  consState.feel=null; consState.tags=[]; consState.tough=null;
+  txtEl.value=""; whoEl.value="";
+  consRenderForm(); consRenderAgg();
+  if(u)u.textContent=consState.entries.length+" response"+(consState.entries.length===1?"":"s")+" saved on this device.";
+}
+function consDelete(id){ consState.entries=consState.entries.filter(e=>e.id!==id); consSave(); consRenderAgg(); }
+function consClear(){
+  if(!consState.entries.length) return;
+  consState.entries=[]; consSave(); consRenderAgg();
+  const u=document.getElementById("consUpd"); if(u)u.textContent="Cleared.";
+}
+const CONS_ORD=["","1st","2nd","3rd","4th"];
+/* Deterministic "synthesis" — stitches ONLY the counted facts into prose. It never reads or
+ * paraphrases the free-text comments; the only judgement words ("agrees"/"points elsewhere")
+ * are factual comparisons of two real numbers (felt-toughest quarter vs the slowest measured 500). */
+function consSynthesis(E){
+  const n=E.length, bits=[];
+  bits.push("<b>"+n+"</b> "+(n===1?"voice":"voices")+" logged in.");
+  const feels=E.map(e=>e.feel).filter(f=>f!=null);
+  if(feels.length){
+    const mean=feels.reduce((a,b)=>a+b,0)/feels.length;
+    bits.push("Average feel <b>"+mean.toFixed(1)+"/5</b> (range "+Math.min(...feels)+"–"+Math.max(...feels)+", n="+feels.length+").");
+  }
+  const tally={}; E.forEach(e=>(e.tags||[]).forEach(t=>tally[t]=(tally[t]||0)+1));
+  const top=Object.keys(tally).sort((a,b)=>tally[b]-tally[a]).slice(0,2);
+  if(top.length) bits.push("Most-flagged: "+top.map(t=>"<b>"+esc(t)+"</b> ("+tally[t]+"/"+n+")").join(", ")+".");
+  const toughs=E.map(e=>e.tough).filter(t=>t!=null);
+  if(toughs.length){
+    const tc={}; toughs.forEach(t=>tc[t]=(tc[t]||0)+1);
+    const feltQ=+Object.keys(tc).sort((a,b)=>tc[b]-tc[a])[0];
+    let s="The crew felt the <b>"+CONS_ORD[feltQ]+" 500</b> was toughest ("+tc[feltQ]+"/"+toughs.length+")";
+    if(coxLastMetrics&&coxLastMetrics.quarters&&coxLastMetrics.quarters.length===4&&coxLastMetrics.quarters.every(q=>q.split500!=null)){
+      let slow=0; coxLastMetrics.quarters.forEach((q,i)=>{ if(q.split500>coxLastMetrics.quarters[slow].split500) slow=i; });
+      const dataQ=slow+1, sp=fmt(coxLastMetrics.quarters[slow].split500);
+      s += (dataQ===feltQ)
+        ? " — and the clock agrees: your slowest 500 was the <b>"+CONS_ORD[dataQ]+"</b> ("+sp+"/500)."
+        : " — but the clock points elsewhere: your slowest 500 was actually the <b>"+CONS_ORD[dataQ]+"</b> ("+sp+"/500). Worth a chat about why feel and pace diverge.";
+    } else { s += ". Build the breakdown above to check that against the clock."; }
+    bits.push(s);
+  }
+  return bits.join(" ");
+}
+function consRenderAgg(){
+  const sum=document.getElementById("consSummary"), list=document.getElementById("consList");
+  if(!sum||!list) return;
+  const E=consState.entries;
+  if(!E.length){ sum.innerHTML=""; list.innerHTML=`<div class="cons-empty">No crew responses yet — add the first one above.</div>`; return; }
+  const feels=E.map(e=>e.feel).filter(f=>f!=null);
+  const feelMean=feels.length?feels.reduce((a,b)=>a+b,0)/feels.length:null;
+  const feelMin=feels.length?Math.min(...feels):null, feelMax=feels.length?Math.max(...feels):null;
+  const tally={}; E.forEach(e=>(e.tags||[]).forEach(t=>tally[t]=(tally[t]||0)+1));
+  const tags=Object.keys(tally).sort((a,b)=>tally[b]-tally[a]);
+  const toughs=E.map(e=>e.tough).filter(t=>t!=null), tc={}; toughs.forEach(t=>tc[t]=(tc[t]||0)+1);
+  const feltQ=toughs.length?+Object.keys(tc).sort((a,b)=>tc[b]-tc[a])[0]:null;
+  let cards=`<div class="s"><div class="k">Responses</div><div class="v">${E.length}</div></div>`
+    +`<div class="s"><div class="k">Feel (1–5)</div><div class="v">${feelMean==null?"—":feelMean.toFixed(1)}<small>${feels.length?" · "+feelMin+"–"+feelMax+", n="+feels.length:""}</small></div></div>`;
+  if(feltQ!=null) cards+=`<div class="s"><div class="k">Felt toughest</div><div class="v">${CONS_ORD[feltQ]}<small> · ${tc[feltQ]}/${toughs.length}</small></div></div>`;
+  const tagBars=tags.length?`<div class="cons-tally">`+tags.map(t=>`<div class="cons-tallyrow"><span class="cn">${esc(t)}</span><span class="cb"><span style="width:${Math.round(tally[t]/E.length*100)}%"></span></span><span class="cc">${tally[t]}</span></div>`).join("")+`</div>`:"";
+  sum.innerHTML=`<div class="cons-synth"><div class="cons-synth-h">Consensus, in brief <span>· auto-composed from the counts only — your words aren't read</span></div><div class="cons-synth-t">${consSynthesis(E)}</div></div>`
+    +`<div class="cons-aggttl">What the crew felt <span>· counts only, nothing interpreted</span></div><div class="coxsum">${cards}</div>${tagBars}`;
+  list.innerHTML=`<div class="cons-listttl">Each voice <span>· shown verbatim</span></div>`+E.slice().sort((a,b)=>b.ts-a.ts).map(e=>{
+    const who=(e.anon||!e.who)?`<span class="cons-anontag">anonymous</span>`:`<span class="cons-whotag">${esc(e.who)}</span>`;
+    const feelHTML=e.feel!=null?`<span class="cons-feelbadge">${e.feel}/5</span>`:"";
+    const toughHTML=e.tough!=null?`<span class="cons-mini">${CONS_ORD[e.tough]} 500 toughest</span>`:"";
+    const tagHTML=(e.tags||[]).map(t=>`<span class="cons-mini">${esc(t)}</span>`).join("");
+    return `<div class="cons-entry"><div class="cons-entry-h">${who}${feelHTML}<button class="cons-del" data-id="${e.id}" title="Remove">×</button></div>`
+      +`${e.text?`<div class="cons-entry-t">${esc(e.text)}</div>`:""}${(toughHTML||tagHTML)?`<div class="cons-entry-tags">${toughHTML}${tagHTML}</div>`:""}</div>`;
+  }).join("");
+}
+(function(){
+  consLoad();
+  const anon=document.getElementById("consAnon"), who=document.getElementById("consWho");
+  if(anon&&who){ const sync=()=>{ who.disabled=anon.checked; if(anon.checked) who.value=""; }; anon.addEventListener("change",sync); sync(); }
+  document.querySelectorAll("#consScale button").forEach(b=>b.addEventListener("click",()=>{ const f=+b.dataset.feel; consState.feel=consState.feel===f?null:f; consRenderForm(); }));
+  document.querySelectorAll("#consTough button").forEach(b=>b.addEventListener("click",()=>{ const t=+b.dataset.tough; consState.tough=consState.tough===t?null:t; consRenderForm(); }));
+  const tg=document.getElementById("consTags");
+  if(tg) tg.addEventListener("click",e=>{ const b=e.target.closest(".cons-tag"); if(!b)return; const t=b.dataset.tag, i=consState.tags.indexOf(t); if(i===-1)consState.tags.push(t); else consState.tags.splice(i,1); consRenderForm(); });
+  const add=document.getElementById("consAdd"), clr=document.getElementById("consClear"), list=document.getElementById("consList");
+  if(add)add.addEventListener("click",consAdd);
+  if(clr)clr.addEventListener("click",consClear);
+  if(list)list.addEventListener("click",e=>{ const b=e.target.closest(".cons-del"); if(b)consDelete(b.dataset.id); });
+  consRenderForm(); consRenderAgg();
+})();
+
+initResults(); loadEvidence();
 renderRaces();updateReadout();renderChart();renderChips();renderArc();renderResults();
 </script>
 </body>
